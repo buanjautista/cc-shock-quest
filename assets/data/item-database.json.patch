@@ -1,0 +1,44 @@
+[{
+  "type": "ENTER",
+  "index": "items"
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+  {
+    "order": 1667,
+    "customItem": "sniper-lens",
+    "name": {
+      "en_US": "Sniper's Lens",
+      "langUid": 0
+    },
+    "description": {
+      "en_US": "Boosts your \\c[3]sight\\c[0].",
+      "langUid": 1
+    },
+    "type": "EQUIP",
+    "rarity": 4,
+    "cost": 0,
+    "level": 70,
+    "icon": "item-sword",
+	"equip-type": "ARM",
+    "effect": {
+      "sheet": "drops",
+      "name": "circle"
+    },
+    "params": {
+            "elemFactor": [1, 1, 1, 1],
+            "hp": 95,
+            "attack": 196,
+            "defense": 30,
+            "focus": 135
+        },
+    "properties": {
+			"AIM_SPEED": 2.5,
+            "CRITICAL_DMG": 1.75,
+			"RANGED_DMG": 1.2,
+			"AIMING_MOVEMENT": 0.25
+    }
+  }
+},{
+  "type": "EXIT"
+}]

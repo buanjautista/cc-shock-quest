@@ -1,0 +1,82 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "move": {
+            "src": "media\/entity\/enemy\/jungle-purplefish.png",
+            "xCount": 9,
+            "offX": 0,
+            "offY": 0,
+            "width": 48,
+            "height": 48
+        },
+        "attack": {
+            "src": "media\/entity\/enemy\/jungle-purplefish.png",
+            "xCount": 9,
+            "offX": 0,
+            "offY": 144,
+            "width": 48,
+            "height": 48
+        }
+    },
+    "shapeType": "Y_FLAT",
+    "wallY": 0.5,
+    "dirs": "6",
+    "flipX": [0, 0, 0, 1, 1, 1],
+    "SUB": [{
+        "sheet": "move",
+        "tileOffsets": [0, 9, 18, 18, 9, 0],
+        "SUB": [{
+            "name": "idle",
+            "time": 0.133,
+            "repeat": true,
+            "frames": [0, 1, 2, 3]
+        }, {
+            "name": "move",
+            "time": 0.1,
+            "repeat": true,
+            "frames": [4, 5, 6, 7]
+        }, {
+            "name": "damage",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [8, 8],
+            "framesGfxOffset": [0, 0, 1, 0]
+        }]
+    }, {
+        "sheet": "attack",
+        "dirs": "6",
+        "tileOffsets": [0, 9, 18, 18, 9, 0],
+        "SUB": [{
+            "name": "blowUp",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [0, 1, 2]
+        }, {
+            "name": "blowUpEnd",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [2, 2],
+            "framesGfxOffset": [0, 0, 1, 0]
+        }, {
+            "name": "scream",
+            "time": 0.066,
+            "repeat": true,
+            "frames": [3, 4]
+        }, {
+            "name": "screamEnd",
+            "time": 0.066,
+            "repeat": false,
+            "frames": [5]
+        }, {
+            "name": "preBulb",
+            "time": 0.066,
+            "repeat": false,
+            "frames": [6]
+        }, {
+            "name": "bulb",
+            "time": 0.066,
+            "repeat": true,
+            "frames": [7, 8]
+        }]
+    }]
+}

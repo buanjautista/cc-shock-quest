@@ -1,0 +1,30 @@
+{
+    "clock": {
+        "name": {
+            "en_US": "Clock Tower",
+            "de_DE": "Clock Tower",
+            "ja_JP": "Clock Tower",
+            "ko_KR": "Clock Tower",
+            "zh_CN": "Clock Tower",
+            "langUid": 1
+        },
+        "description": {
+            "en_US": "",
+            "de_DE": "",
+            "ja_JP": "",
+            "ko_KR": "",
+            "zh_CN": "",
+            "langUid": 3
+        },
+        "areaType": "DUNGEON",
+        "order": 1120,
+        "track": true,
+        "chests": 4,
+        "keyItem": "677",
+        "masterKeyItem": "678",
+        "position": {
+            "x": 200,
+            "y": 115
+        }
+    }
+}
