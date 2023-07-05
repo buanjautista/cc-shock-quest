@@ -1,0 +1,16 @@
+{
+    "DOCTYPE": "EFFECT",
+    "EFFECTS": {
+        "noRender": [
+            {
+                "alpha": 0,
+                "duration": 0.5,
+                "type": "CHANGE_ALPHA"
+            },
+            {
+                "time": 0.1,
+                "type": "WAIT"
+            }
+        ]
+    }
+}

@@ -20,7 +20,7 @@
     "cost": 0,
     "level": 70,
     "icon": "item-sword",
-	"equip-type": "ARM",
+	"equipType": "ARM",
     "effect": {
       "sheet": "drops",
       "name": "circle"
@@ -35,7 +35,7 @@
     "properties": {
 			"AIM_SPEED": 2.5,
             "CRITICAL_DMG": 1.75,
-			"RANGED_DMG": 1.2,
+			"RANGED_DMG": 1.4,
 			"AIMING_MOVEMENT": 0.25
     }
   }

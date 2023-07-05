@@ -19,12 +19,9 @@
         "areaType": "DUNGEON",
         "order": 1120,
         "track": true,
-        "chests": 4,
-        "keyItem": "677",
-        "masterKeyItem": "678",
         "position": {
-            "x": 200,
-            "y": 115
+            "x": 215,
+            "y": 95
         }
     }
 }
