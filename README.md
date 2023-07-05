@@ -1,6 +1,7 @@
 # Clock Tower 
 
-A mod that adds a new quest / dungeon to the game, located in Gaia's Garden western side. Recommended for characters above lv60, as an extra quest before/during the post-game plot.
+A CrossCode mod, currently in development, that adds a new quest / dungeon to the game, located in Gaia's Garden western side. 
+Recommended for characters above lv60, as an extra quest before/during the post-game plot.
 
 # Requirements:
 
