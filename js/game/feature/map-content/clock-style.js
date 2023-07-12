@@ -1,7 +1,5 @@
 ig.module("game.feature.map-content.clock-map-style").requires("game.feature.map-content.map-style")
     .defines(function() {
-
-        // add more to json as needed
         ig.MAP_STYLES = {
             ...ig.MAP_STYLES,
             "clock": {
@@ -68,7 +66,13 @@ ig.module("game.feature.map-content.clock-map-style").requires("game.feature.map
                     railY: 304,
                     lorryX: 128,
                     lorryY: 304,
+                },
+                magnet: {
+                    sheet: "media/map/shockwave-dng.png",
+                    x: 160,
+                    y: 272,
                 }
+
             }
         }
     });
@@ -76,6 +80,7 @@ ig.module("game.feature.map-content.clock-map-style").requires("game.feature.map
 
 ig.module("game.feature.puzzle.entities.clock-rotate-blocker").requires("game.feature.puzzle.entities.rotate-blocker")
 {
+    // Add an exception to vanilla Rotate Blocker to allow 4 rotations without flipping
     ig.ENTITY.RotateBlocker.inject({
         init: function (a, d, c, e) {
             this.parent(a, d, c, e);
