@@ -1,0 +1,52 @@
+{
+    "pondTraderWeapon": {
+        "name": {
+            "en_US": "",
+            "langUid": 1
+        },
+        "order": 1000,
+        "options": [{
+            "get": [{
+                "id": "equip-sniper-lens",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "461",
+                "amount": 10
+            }, {
+                "id": "trade-clock-gear",
+                "amount": 1
+            }],
+            "scale": 200000
+        }, {
+            "get": [{
+                "id": "equip-slapper",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "463",
+                "amount": 10
+            }, {
+                "id": "trade-clock-gear",
+                "amount": 1
+            }],
+            "scale": 200000
+        }, {
+            "get": [{
+                "id": "equip-flasher",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "463",
+                "amount": 10
+            }, {
+                "id": "trade-clock-gear",
+                "amount": 1
+            }],
+            "scale": 200000
+        }],
+        "area": "jungle"
+    }
+}
+
+

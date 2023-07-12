@@ -1,0 +1,330 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "bug": {
+            "src": "media\/entity\/enemy\/bug-samurai-wave.png",
+            "xCount": 6,
+            "offX": 0,
+            "offY": 0,
+            "width": 56,
+            "height": 56
+        },
+        "transform": {
+            "src": "media\/entity\/enemy\/bug-samurai-wave.png",
+            "offX": 0,
+            "offY": 168,
+            "width": 56,
+            "height": 56
+        },
+        "samurai1": {
+            "src": "media\/entity\/enemy\/bug-samurai-wave.png",
+            "xCount": 11,
+            "offX": 0,
+            "offY": 224,
+            "width": 56,
+            "height": 56
+        },
+        "samurai2": {
+            "src": "media\/entity\/enemy\/bug-samurai-wave.png",
+            "xCount": 11,
+            "offX": 0,
+            "offY": 392,
+            "width": 56,
+            "height": 56
+        }
+    },
+    "shapeType": "Y_FLAT",
+    "SUB": [
+        {
+            "gfxOffset": {
+                "x": 0,
+                "y": 4
+            },
+            "sheet": "bug",
+            "dirs": "6",
+            "flipX": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                1
+            ],
+            "tileOffsets": [
+                0,
+                6,
+                12,
+                12,
+                6,
+                0
+            ],
+            "SUB": [
+                {
+                    "name": "bugIdle",
+                    "time": 0.1,
+                    "repeat": true,
+                    "frames": [
+                        0
+                    ]
+                },
+                {
+                    "name": "bugMove",
+                    "time": 0.07,
+                    "repeat": true,
+                    "frames": [
+                        1,
+                        2,
+                        3,
+                        4
+                    ]
+                },
+                {
+                    "name": "dash",
+                    "time": 0.07,
+                    "repeat": true,
+                    "frames": [
+                        5
+                    ]
+                }
+            ]
+        },
+        {
+            "gfxOffset": {
+                "x": 0,
+                "y": 4
+            },
+            "sheet": "transform",
+            "dirs": "2",
+            "flipX": [
+                0,
+                1
+            ],
+            "tileOffsets": [
+                0,
+                0
+            ],
+            "SUB": [
+                {
+                    "name": "bugDamage",
+                    "time": 0.05,
+                    "repeat": true,
+                    "frames": [
+                        0,
+                        0
+                    ],
+                    "framesGfxOffset": [
+                        1,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "name": "transform1",
+                    "time": 0.1,
+                    "repeat": false,
+                    "frames": [
+                        1,
+                        2,
+                        3,
+                        4
+                    ]
+                },
+                {
+                    "name": "transform2",
+                    "time": 0.066,
+                    "repeat": false,
+                    "frames": [
+                        5,
+                        6
+                    ]
+                },
+                {
+                    "name": "transformPost",
+                    "time": 0.066,
+                    "repeat": false,
+                    "frames": [
+                        7
+                    ]
+                },
+                {
+                    "name": "jumpFast",
+                    "time": 0.066,
+                    "repeat": false,
+                    "frames": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                    ]
+                }
+            ]
+        },
+        {
+            "sheet": "samurai1",
+            "dirs": "6",
+            "flipX": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                1
+            ],
+            "tileOffsets": [
+                0,
+                11,
+                22,
+                22,
+                11,
+                0
+            ],
+            "SUB": [
+                {
+                    "name": "idle",
+                    "time": 0.1,
+                    "repeat": true,
+                    "frames": [
+                        0,
+                        1,
+                        2,
+                        3
+                    ]
+                },
+                {
+                    "name": "move",
+                    "time": 0.166,
+                    "repeat": true,
+                    "frames": [
+                        4,
+                        5,
+                        6,
+                        7
+                    ]
+                },
+                {
+                    "name": "jump",
+                    "time": 0.1,
+                    "repeat": false,
+                    "frames": [
+                        8
+                    ]
+                },
+                {
+                    "name": "fall",
+                    "time": 0.1,
+                    "repeat": false,
+                    "frames": [
+                        9
+                    ]
+                },
+                {
+                    "name": "damage",
+                    "time": 0.05,
+                    "repeat": true,
+                    "frames": [
+                        10,
+                        10
+                    ],
+                    "framesGfxOffset": [
+                        1,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "sheet": "samurai2",
+            "dirs": "6",
+            "flipX": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                1
+            ],
+            "tileOffsets": [
+                0,
+                11,
+                22,
+                22,
+                11,
+                0
+            ],
+            "SUB": [
+                {
+                    "name": "run",
+                    "time": 0.05,
+                    "repeat": true,
+                    "frames": [
+                        0,
+                        1,
+                        2,
+                        3
+                    ]
+                },
+                {
+                    "name": "attack",
+                    "time": 0.066,
+                    "repeat": false,
+                    "frames": [
+                        4
+                    ]
+                },
+                {
+                    "name": "attackEnd",
+                    "time": 0.066,
+                    "repeat": false,
+                    "frames": [
+                        5,
+                        6
+                    ]
+                },
+                {
+                    "name": "attack2Pre",
+                    "time": 0.066,
+                    "repeat": false,
+                    "frames": [
+                        7,
+                        8
+                    ]
+                },
+                {
+                    "name": "attack2Dash",
+                    "time": 0.066,
+                    "repeat": false,
+                    "frames": [
+                        9
+                    ]
+                },
+                {
+                    "name": "attack2",
+                    "time": 0.066,
+                    "repeat": false,
+                    "frames": [
+                        10
+                    ]
+                },
+                {
+                    "name": "weak",
+                    "time": 0.05,
+                    "repeat": true,
+                    "frames": [
+                        8,
+                        8
+                    ],
+                    "framesGfxOffset": [
+                        0,
+                        0,
+                        1,
+                        0
+                    ]
+                }
+            ]
+        }
+    ]
+}

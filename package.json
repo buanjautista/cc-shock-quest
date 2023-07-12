@@ -1,40 +1,10 @@
 {
-	"name": "ShockQuest",
-	"description": "Extra Quest",
+	"name": "Clock Tower",
+	"description": "A custom dungeon located in Gaia's Garden",
 	"version": "0.0.1",
 	"prestart": "mod.js",
 	"module": true,
-	"assets": [
-		"assets/data/effects/utils/entity_invis.json",
-		"assets/data/enemies/fish-shock.json",
-		"assets/data/animations/enemies/jungle-purplefish.json",
-		"assets/data/areas/jshock-dng.json",
-		"assets/data/maps/jungle/left/path-left-04.json",
-		"assets/data/maps/jshock-dng/g/entrance.json",
-		"assets/data/maps/jshock-dng/g/fork-room.json",
-		"assets/data/maps/jshock-dng/g/left-room.json",
-		"assets/data/maps/jshock-dng/g/right-room.json",
-		"assets/data/maps/jshock-dng/f1/room01.json",
-		"assets/data/maps/jshock-dng/f1/room02.json",
-		"assets/data/maps/jshock-dng/f2/room01.json",
-		"assets/data/maps/jshock-dng/f2/room02.json",
-		"assets/data/maps/jshock-dng/f2/middle-room.json",
-		"assets/data/maps/jshock-dng/f2/puzzle-room.json",
-		"assets/data/maps/jshock-dng/f1/left-room01.json",
-		"assets/data/maps/jshock-dng/f1/left-room02.json",
-		"assets/data/maps/jshock-dng/f1/left-room03.json",
-		"assets/data/maps/jshock-dng/f1/left-room04.json",
-		"assets/data/maps/jshock-dng/f1/right-room01.json",
-		"assets/data/maps/jshock-dng/f1/right-room02.json",
-		"assets/data/maps/jshock-dng/f1/right-room03.json",
-		"assets/data/maps/jshock-dng/f1/south-room01.json",
-		"assets/data/maps/jshock-dng/f1/south-room02.json",
-		"assets/data/maps/jshock-dng/f1/south-room03.json",
-		"assets/data/maps/jshock-dng/f1/south-room04.json",
-		"assets/data/maps/jshock-dng/f1/south-room05.json",
-		"assets/data/maps/jshock-dng/f1/south-room06.json",
-		"assets/data/maps/jshock-dng/f1/south-room07.json"
-	],
+	
 	"dependencies": {
         "item-api": "^0.4.0"
     }

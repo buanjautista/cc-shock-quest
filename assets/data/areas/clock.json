@@ -39,7 +39,7 @@
                 {
                     "path": "jshock-dng.g.left-room",
                     "name": {
-                        "en_US": "West Passage",
+                        "en_US": "Principle of Redirection",
                         "de_DE": "unbetitelt",
                         "zh_CN": "未命名",
                         "ja_JP": "無題",
@@ -50,7 +50,7 @@
                 {
                     "path": "jshock-dng.g.right-room",
                     "name": {
-                        "en_US": "East Passage",
+                        "en_US": "Principle of Rotation",
                         "de_DE": "unbetitelt",
                         "zh_CN": "未命名",
                         "ja_JP": "無題",
@@ -226,6 +226,72 @@
                         "ko_KR": "미정",
                         "zh_TW": "未命名"
                     }
+                },
+                {
+                    "path": "jshock-dng.f1.south-room02",
+                    "name": {
+                        "en_US": "Fight Room",
+                        "de_DE": "unbetitelt",
+                        "zh_CN": "未命名",
+                        "ja_JP": "無題",
+                        "ko_KR": "미정",
+                        "zh_TW": "未命名"
+                    }
+                },
+                {
+                    "path": "jshock-dng.f1.south-room03",
+                    "name": {
+                        "en_US": "Fight Room",
+                        "de_DE": "unbetitelt",
+                        "zh_CN": "未命名",
+                        "ja_JP": "無題",
+                        "ko_KR": "미정",
+                        "zh_TW": "未命名"
+                    }
+                },
+                {
+                    "path": "jshock-dng.f1.south-room04",
+                    "name": {
+                        "en_US": "Fight Room",
+                        "de_DE": "unbetitelt",
+                        "zh_CN": "未命名",
+                        "ja_JP": "無題",
+                        "ko_KR": "미정",
+                        "zh_TW": "未命名"
+                    }
+                },
+                {
+                    "path": "jshock-dng.f1.south-room05",
+                    "name": {
+                        "en_US": "Back and Forth",
+                        "de_DE": "unbetitelt",
+                        "zh_CN": "未命名",
+                        "ja_JP": "無題",
+                        "ko_KR": "미정",
+                        "zh_TW": "未命名"
+                    }
+                },
+                {
+                    "path": "jshock-dng.f1.south-room06",
+                    "name": {
+                        "en_US": "Fight Room",
+                        "de_DE": "unbetitelt",
+                        "zh_CN": "未命名",
+                        "ja_JP": "無題",
+                        "ko_KR": "미정",
+                        "zh_TW": "未命名"
+                    }
+                },
+                {
+                    "path": "jshock-dng.f1.south-room07",
+                    "name": {
+                        "en_US": "Fight Room",
+                        "de_DE": "unbetitelt",
+                        "zh_CN": "未命名",
+                        "ja_JP": "無題",
+                        "ko_KR": "미정",
+                        "zh_TW": "未命名"
+                    }
                 }
             ],
             "connections": [
@@ -340,6 +406,70 @@
                     "size": 1,
                     "map1": 5,
                     "map2": 9
+                },
+                {
+                    "tx": 59,
+                    "ty": 28,
+                    "dir": "VERTICAL",
+                    "size": 1,
+                    "map1": 4,
+                    "map2": 10
+                },
+                {
+                    "tx": 59,
+                    "ty": 28,
+                    "dir": "VERTICAL",
+                    "size": 1,
+                    "map1": 4,
+                    "map2": 13
+                },
+                {
+                    "tx": 59,
+                    "ty": 28,
+                    "dir": "VERTICAL",
+                    "size": 1,
+                    "map1": 10,
+                    "map2": 11
+                },
+                {
+                    "tx": 59,
+                    "ty": 28,
+                    "dir": "VERTICAL",
+                    "size": 1,
+                    "map1": 11,
+                    "map2": 12
+                },
+                {
+                    "tx": 59,
+                    "ty": 28,
+                    "dir": "VERTICAL",
+                    "size": 1,
+                    "map1": 12,
+                    "map2": 4
+                },
+                {
+                    "tx": 59,
+                    "ty": 28,
+                    "dir": "VERTICAL",
+                    "size": 1,
+                    "map1": 13,
+                    "map2": 14
+                },
+                {
+                    "tx": 59,
+                    "ty": 28,
+                    "dir": "VERTICAL",
+                    "size": 1,
+                    "map1": 14,
+                    "map2": 15
+                },
+                {
+                    "tx": 59,
+                    "ty": 28,
+                    "dir": "VERTICAL",
+                    "size": 1,
+                    "map1": 15,
+                    "map2": 4
                 }
             ],
             "icons": [],

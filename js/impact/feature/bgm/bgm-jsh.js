@@ -3,7 +3,7 @@ ig.module("impact.feature.bgm.bgm-jsh").requires("impact.feature.bgm.bgm").defin
     ig.merge(ig.BGM_TRACK_LIST, {
         clockTower: {
             "path": "media/bgm/muClock.ogg",
-            "loopEnd": 195.602,
+            "loopEnd": 200.463,
             "volume": 2.5
         },
 		jShock: {

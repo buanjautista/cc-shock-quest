@@ -1,44 +1,249 @@
-[{
-  "type": "ENTER",
-  "index": "items"
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-  {
-    "order": 1667,
-    "customItem": "sniper-lens",
-    "name": {
-      "en_US": "Sniper's Lens",
-      "langUid": 0
+[
+    {
+        "type": "ENTER",
+        "index": "items"
     },
-    "description": {
-      "en_US": "Boosts your \\c[3]sight\\c[0].",
-      "langUid": 1
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 1667,
+            "customItem": "equip-sniper-lens",
+            "name": {
+                "en_US": "Sniper's Lens",
+                "langUid": 0
+            },
+            "description": {
+                "en_US": "Boosts your \\c[3]sight\\c[0].",
+                "langUid": 1
+            },
+            "type": "EQUIP",
+            "rarity": 4,
+            "cost": 0,
+            "level": 70,
+            "icon": "item-sword",
+            "equipType": "ARM",
+            "effect": {
+                "sheet": "drops",
+                "name": "circle"
+            },
+            "params": {
+                "elemFactor": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "hp": 95,
+                "attack": 196,
+                "defense": 30,
+                "focus": 135
+            },
+            "properties": {
+                "AIM_SPEED": 2.5,
+                "CRITICAL_DMG": 1.75,
+                "RANGED_DMG": 1.4,
+                "AIMING_MOVEMENT": 0.5
+            }
+        }
     },
-    "type": "EQUIP",
-    "rarity": 4,
-    "cost": 0,
-    "level": 70,
-    "icon": "item-sword",
-	"equipType": "ARM",
-    "effect": {
-      "sheet": "drops",
-      "name": "circle"
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 1668,
+            "customItem": "equip-slapper",
+            "name": {
+                "en_US": "Ol' Slapper",
+                "langUid": 0
+            },
+            "description": {
+                "en_US": "Slaps. A lot.",
+                "langUid": 1
+            },
+            "type": "EQUIP",
+            "rarity": 4,
+            "cost": 0,
+            "level": 70,
+            "icon": "item-sword",
+            "equipType": "ARM",
+            "effect": {
+                "sheet": "drops",
+                "name": "circle"
+            },
+            "params": {
+                "elemFactor": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "hp": 105,
+                "attack": 176,
+                "defense": 80,
+                "focus": 90
+            },
+            "properties": {
+                "ASSAULT": 1.75,
+                "GUARD_STRENGTH": 0.75,
+                "KNOCKBACK": 3,
+                "AIM_STABILITY": 0.85
+            }
+        }
     },
-    "params": {
-            "elemFactor": [1, 1, 1, 1],
-            "hp": 95,
-            "attack": 196,
-            "defense": 30,
-            "focus": 135
-        },
-    "properties": {
-			"AIM_SPEED": 2.5,
-            "CRITICAL_DMG": 1.75,
-			"RANGED_DMG": 1.4,
-			"AIMING_MOVEMENT": 0.25
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 1669,
+            "customItem": "equip-flasher",
+            "name": {
+                "en_US": "Light Emitting D",
+                "langUid": 0
+            },
+            "description": {
+                "en_US": "Not useful to replace a lighter",
+                "langUid": 1
+            },
+            "type": "EQUIP",
+            "rarity": 4,
+            "cost": 0,
+            "level": 70,
+            "icon": "item-shoe",
+            "equipType": "FEET",
+            "effect": {
+                "sheet": "drops",
+                "name": "circle"
+            },
+            "params": {
+                "elemFactor": [
+                    1,
+                    1,
+                    1.5,
+                    1
+                ],
+                "hp": 375,
+                "attack": 64,
+                "defense": 25,
+                "focus": 125
+            },
+            "properties": {
+                "DASH_INVINC": 1.75,
+                "AIMING_MOVEMENT": 0.5,
+                "MOMENTUM": 1.15,
+                "DASH_STEP": 2,
+                "GUARD_STRENGTH": 0.35
+            }
+        }
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 1700,
+            "customItem": "trade-clock-gear",
+            "name": {
+                "en_US": "Clock Gear",
+                "langUid": 2138
+            },
+            "description": {
+                "en_US": "",
+                "langUid": 2139
+            },
+            "type": "TRADE",
+            "rarity": 4,
+            "cost": 0,
+            "level": 1,
+            "icon": "item-trade",
+            "noTrack": false,
+            "sources": [
+                {
+                    "type": "OTHER",
+                    "value": {
+                        "icon": "ENEMY",
+                        "text": {
+                            "en_US": ""
+                        },
+                        "type": "ENEMY",
+                        "value": "fish-shock"
+                    }
+                }
+            ],
+            "effect": {
+                "sheet": "",
+                "name": null
+            }
+        }
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 1701,
+            "customItem": "key-clock-regular",
+            "name": {
+                "en_US": "Clock Tower Key",
+                "de_DE": "Clock Tower Key",
+                "fr_FR": "undefined",
+                "zh_CN": "Clock Tower Key",
+                "ja_JP": "Clock Tower Key",
+                "ko_KR": "Clock Tower Key",
+                "langUid": 2589,
+                "zh_TW": "Clock Tower Key"
+            },
+            "description": {
+                "en_US": "A regular key for \\c[3]Clock Tower\\c[0].",
+                "de_DE": "A regular key for \\c[3]Clock Tower\\c[0].",
+                "fr_FR": "undefined",
+                "zh_CN": "A regular key for \\c[3]Clock Tower\\c[0].",
+                "ja_JP": "A regular key for \\c[3]Clock Tower\\c[0].",
+                "ko_KR": "A regular key for \\c[3]Clock Tower\\c[0].",
+                "langUid": 2590,
+                "zh_TW": "A regular key for \\c[3]Clock Tower\\c[0]."
+            },
+            "type": "KEY",
+            "rarity": 0,
+            "level": 1,
+            "icon": "item-key",
+            "effect": {
+                "sheet": "",
+                "name": null
+            },
+            "noTrack": false
+        }
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 1702,
+            "customItem": "key-clock-master",
+            "name": {
+                "en_US": "Clock Master Key",
+                "de_DE": "Clock Master Key",
+                "fr_FR": "undefined",
+                "zh_CN": "Clock Master Key",
+                "ja_JP": "Clock Master Key",
+                "ko_KR": "Clock Master Key",
+                "langUid": 2589,
+                "zh_TW": "Clock Master Key"
+            },
+            "description": {
+                "en_US": "The master key of the \\c[3]Clock Tower\\c[0].",
+                "de_DE": "The master key of the \\c[3]Clock Tower\\c[0].",
+                "fr_FR": "undefined",
+                "zh_CN": "The master key of the \\c[3]Clock Tower\\c[0].",
+                "ja_JP": "The master key of the \\c[3]Clock Tower\\c[0].",
+                "ko_KR": "The master key of the \\c[3]Clock Tower\\c[0].",
+                "langUid": 2590,
+                "zh_TW": "The master key of the \\c[3]Clock Tower\\c[0]."
+            },
+            "type": "KEY",
+            "rarity": 0,
+            "level": 1,
+            "icon": "item-key",
+            "effect": {
+                "sheet": "",
+                "name": null
+            },
+            "noTrack": false
+        }
+    },
+    {
+        "type": "EXIT"
     }
-  }
-},{
-  "type": "EXIT"
-}]
+]
