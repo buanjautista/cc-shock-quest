@@ -3,6 +3,11 @@
 A CrossCode mod, currently in development, that adds a new quest / dungeon to the game, located in Gaia's Garden western side. 
 Recommended for characters above lv60, as an extra quest before/during the post-game plot.
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b9e8bef55d2a386dc9751ac90c59c456f7638407
 # Requirements:
 
 ## [CCLoader](https://github.com/CCDirectLink/CCLoader/releases)
@@ -15,6 +20,11 @@ Item-API is another mod, required for some custom items implementations. You can
 Drop the mod source code folder into the /assets/mods/ folder
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b9e8bef55d2a386dc9751ac90c59c456f7638407
 # Installation:
 
 Assuming you already installed CCLoader, download the latest release from https://github.com/buanjautista/cc-shock-quest/releases, and drop the .ccmod file into the /assets/mods/ folder inside the CrossCode directory.
