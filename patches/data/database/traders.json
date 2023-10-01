@@ -15,7 +15,7 @@
                 "amount": 10
             }, {
                 "id": "trade-clock-gear",
-                "amount": 1
+                "amount": 4
             }],
             "scale": 200000
         }, {
@@ -28,7 +28,7 @@
                 "amount": 10
             }, {
                 "id": "trade-clock-gear",
-                "amount": 1
+                "amount": 2
             }],
             "scale": 200000
         }, {
@@ -41,7 +41,13 @@
                 "amount": 10
             }, {
                 "id": "trade-clock-gear",
+                "amount": 3
+            }, {
+                "id": "310",
                 "amount": 1
+            }, {
+                "id": "281",
+                "amount": 4
             }],
             "scale": 200000
         }],
