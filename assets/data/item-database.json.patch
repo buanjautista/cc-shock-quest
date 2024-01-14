@@ -95,7 +95,7 @@
             "order": 1669,
             "customItem": "equip-flasher",
             "name": {
-                "en_US": "Light Emitting D",
+                "en_US": "Light Emitting Diode",
                 "langUid": 0
             },
             "description": {
@@ -130,6 +130,46 @@
                 "MOMENTUM": 1.15,
                 "DASH_STEP": 2,
                 "GUARD_STRENGTH": 0.35
+            }
+        }
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 1670,
+            "customItem": "equip-wide-umbrella",
+            "name": {
+                "en_US": "Wide Umbrella",
+                "langUid": 0
+            },
+            "description": {
+                "en_US": "Keeps you safe against wide fire rains",
+                "langUid": 1
+            },
+            "type": "EQUIP",
+            "rarity": 4,
+            "cost": 0,
+            "level": 70,
+            "icon": "item-helm",
+            "equipType": "HEAD",
+            "effect": {
+                "sheet": "drops",
+                "name": "circle"
+            },
+            "params": {
+                "elemFactor": [
+                    1.1,
+                    1.1,
+                    1,
+                    1
+                ],
+                "attack": 20,
+                "defense": 25,
+                "focus": 178
+            },
+            "properties": {
+                "PERFECT_GUARD_WINDOW": 1.3,
+                "GUARD_SP": 1.2
             }
         }
     },
