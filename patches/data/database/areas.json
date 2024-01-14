@@ -23,5 +23,30 @@
             "x": 215,
             "y": 95
         }
+    },
+    "seekers-path": {
+        "name": {
+            "en_US": "Seeker's Path",
+            "de_DE": "Seeker's Path",
+            "ja_JP": "Seeker's Path",
+            "ko_KR": "Seeker's Path",
+            "zh_CN": "Seeker's Path",
+            "langUid": 1
+        },
+        "description": {
+            "en_US": "",
+            "de_DE": "",
+            "ja_JP": "",
+            "ko_KR": "",
+            "zh_CN": "",
+            "langUid": 3
+        },
+        "areaType": "DUNGEON",
+        "order": 1121,
+        "track": true,
+        "position": {
+            "x": 215,
+            "y": 95
+        }
     }
 }

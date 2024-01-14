@@ -1,13 +1,7 @@
 {
     "level": 65,
     "boostedLevel": 85,
-    "params": {
-        "hp": 12750,
-        "attack": 325,
-        "defense": 415,
-        "focus": 310,
-        "elemFactor": [0.5, 1.25, 0.2, 1.5]
-    },
+    "params": { "hp": 12750, "attack": 325, "defense": 415, "focus": 310, "elemFactor": [0.5, 1.25, 0.2, 1.5] },
     "credit": 920,
     "exp": 75,
     "maxSp": 8,
@@ -15,58 +9,22 @@
     "healDropRate": 0,
     "boss": false,
     "bossOrder": 0,
-    "padding": {
-        "x": 4,
-        "y": 4
-    },
+    "padding": { "x": 4, "y": 4 },
     "material": "METAL",
-    "aiGroup": "hedgehog",
+    "aiGroup": "seahorse",
     "aiLearnType": "REGULAR",
-    "itemDrops": [{
-        "item": "284",
-        "prob": 0.16,
-        "min": 1,
-        "max": 1,
-        "rank": ""
-    }, {
-        "item": "464",
-        "prob": 0.12,
-        "min": 1,
-        "max": 1,
-        "rank": "C",
-        "boosted": true,
-        "condition": "item.448.toggled || stat.items.457>= 1"
-    }, {
-        "item": "356",
-        "prob": 0.02,
-        "min": 1,
-        "max": 1,
-        "rank": "A"
-    }],
-    "targetDetect": {
-        "detectDistance": 120,
-        "loseDistance": 128,
-        "notifyNeighbourRadius": 100
-    },
+    "itemDrops": [
+        { "item": "284", "prob": 0.16, "min": 1, "max": 1, "rank": "" }, 
+        { "item": "356", "prob": 0.02, "min": 1, "max": 1, "rank": "A" }
+    ],
+    "targetDetect": { "detectDistance": 152, "loseDistance": 320, "notifyNeighbourRadius": 140 },
     "hpBreaks": [],
-    "size": {
-        "x": 16,
-        "y": 16,
-        "z": 24
-    },
+    "size": { "x": 16, "y": 16, "z": 24 },
     "anims": "enemies.jungle-purplefish",
     "defaultState": "IDLE",
     "walkConfigs": {
-        "normal": {
-            "idle": "idle",
-            "move": "move",
-            "damage": "damage",
-            "jump": "roll"
-        },
-        "weak": {
-            "idle": "damage",
-            "damage": "damage"
-        }
+        "normal": { "idle": "idle", "move": "move", "damage": "damage", "jump": "roll" },
+        "weak": { "idle": "damage", "damage": "damage" }
     },
     "_wm": null,
     "walkAnims": "normal",
@@ -75,9 +33,10 @@
     "jumpingEnabled": true,
     "shadow": 20,
     "floatAccel": 2,
-    "flyHeight": 6,
+    "flyHeight": 10,
     "ballFactor": 0.3,
     "hitStable": "LIGHT",
+    "faceToTarget": true,
     "annotate": {
         "active": "NONE",
         "passive": "NONE",
@@ -95,116 +54,50 @@
             "noAssist": false,
             "type": "TIME"
         },
-        "aggroHits": {
-            "target": 10,
-            "type": "HIT"
-        },
-        "escortAttack": {
-            "target": 10,
-            "initRandom": 0,
-            "resetRandom": 0.3,
+        "aggroHits": { "target": 10, "type": "HIT" },
+        "Circle": {
+            "target": 5,
+            "initRandom": 1,
+            "resetRandom": 0.4,
             "noStateReset": false,
+            "noAssist": false,
+            "type": "TIME"
+        },
+        "aimAttack": {
+            "target": 2,
+            "initRandom": 1,
+            "resetRandom": 1,
+            "noStateReset": true,
             "type": "TIME"
         }
     },
     "states": {
         "IDLE": {
-            "choices": [{
-                "req": [{
-                    "type": "HAS_TARGET"
-                }],
-                "postSwitchState": "DEFAULT"
-            }, {
-                "req": [{
-                    "type": "!SPAWN_POINT_DISTANCE",
-                    "max": 64
-                }],
-                "action": "MoveToSpawnPoint"
-            }, {
-                "req": [{
-                    "type": "RANDOM",
-                    "max": 0.3
-                }],
-                "action": "MoveRandom"
-            }, {
-                "action": "Idle"
-            }]
+            "choices": [
+            { "req": [{ "type": "HAS_TARGET" }], "postSwitchState": "DEFAULT" }, 
+            { "req": [{ "type": "!SPAWN_POINT_DISTANCE", "max": 64 }], "action": "MoveToSpawnPoint" }, 
+            { "req": [{ "type": "RANDOM", "max": 0.3 }], "action": "MoveRandom" }, 
+            { "action": "Idle" }
+        ]
         },
         "DEFAULT": {
-            "enabledReactions": ["ESCAPE", "AGGRO", "ESCORT_DEAD"],
-            "choices": [{
-                "req": [{
-                    "negated": false,
-                    "type": "VAR_CONDITION",
-                    "condition": "tmp.questEscort-started"
-                }, {
-                    "name": "init",
-                    "type": "!ATTRIB_IS_TRUE"
-                }],
-                "action": "QuestEscort-Init"
-            }, {
-                "req": [{
-                    "type": "!HAS_TARGET"
-                }],
-                "postSwitchState": "IDLE"
-            }, {
-                "req": [{
-                    "type": "!HAS_TARGET"
-                }, {
-                    "negated": false,
-                    "type": "VAR_CONDITION",
-                    "condition": "tmp.questEscort-started"
-                }],
-                "action": "QuestEscort-TargetEscortee"
-            }, {
-                "req": [{
-                    "negated": false,
-                    "type": "VAR_CONDITION",
-                    "condition": "tmp.questEscort-started"
-                }, {
-                    "distance": 140,
-                    "throwing": false,
-                    "type": "!TARGET_REACHABLE"
-                }, {
-                    "negated": false,
-                    "type": "TRACKER_READY",
-                    "name": "escortAttack"
-                }],
-                "action": "QuestEscort-TargetEscortee"
-            }, {
-                "req": [{
-                    "negated": false,
-                    "type": "VAR_CONDITION",
-                    "condition": "tmp.questEscort-started && (tmp.escortAttackBlock < tmp.questEscort-MaxAttack)"
-                }, {
-                    "negated": false,
-                    "type": "TRACKER_READY",
-                    "name": "escortAttack"
-                }],
-                "action": "QuestEscort-TargetEscortee",
-                "frequency": "NORMAL"
-            }, {
-                "req": [{
-                    "min": 0,
-                    "max": 80,
-                    "negated": false,
-                    "type": "TARGET_DISTANCE"
-                }],
-                "action": "Escape",
-                "ignoreStun": true
-            }, {
-                "req": [{
-                    "distance": 20,
-                    "throwing": true,
-                    "type": "!TARGET_REACHABLE"
-                }],
-                "action": "Adjust"
-            }, {
-                "action": "BulbShoot",
-                "frequency": "NORMAL"
-            }, {
-                "action": "BattleIdle"
-            }]
+            "enabledReactions": ["ESCAPE", "AGGRO"],
+            "choices": [
+                { "req": [{ "type": "!HAS_TARGET" }], "postSwitchState": "IDLE" },
+                { "req": [{ "min": 0, "max": 48, "negated": false, "type": "TARGET_DISTANCE" }], "action": "Escape", "ignoreStun": true }, 
+                { "req": [{ "distance": 220, "throwing": true, "type": "!TARGET_REACHABLE" }], "action": "Adjust" }, 
+                { "req": [{ "distance": 180, "throwing": true, "type": "!TARGET_REACHABLE" }],"action": "BulbShoot", "frequency": "NORMAL" },
+                {
+                    "req": [ { "negated": false, "type": "TRACKER_READY", "name": "Circle" } ],
+                    "action": "Circle",
+                    "frequency": "RARE"
+                },
+                {
+                    "req": [ { "negated": false, "type": "TRACKER_READY", "name": "aimAttack" }, { "name": "allowShoot", "negated": false, "type": "ATTRIB_IS_TRUE" }],
+                    "action": "BulbShoot"
+                },
+                { "action": "CircleIdle", "frequency": "NORMAL" },
+                { "action": "BattleIdle" }]
         },
         "WEAK": {
             "walkAnims": "weak",
@@ -212,7 +105,7 @@
             "flyKeepHeight": true,
             "damageFactor": 1.5,
             "ballFactor": 0.66,
-            "enabledReactions": ["ESCORT_DEAD"],
+            "enabledReactions": [],
             "annotate": {
                 "active": "NONE",
                 "passive": "WEAK",
@@ -221,11 +114,7 @@
                 "extra": []
             },
             "choices": [{
-                "req": [{
-                    "negated": false,
-                    "type": "TRACKER_READY",
-                    "name": "weakRegen"
-                }],
+                "req": [{ "negated": false, "type": "TRACKER_READY", "name": "weakRegen" }],
                 "preSwitchState": "DEFAULT"
             }]
         },
@@ -244,20 +133,11 @@
         }
     },
     "proxies": {
-        "Bold": {
+        "Spark": {
             "copyOwnerAnims": false,
-            "size": {
-                "x": 16,
-                "y": 16,
-                "z": 32
-            },
+            "size": { "x": 16, "y": 16, "z": 32 },
             "breakType": "NEVER",
-            "config": {
-                "collType": "PROJECTILE",
-                "airFriction": 1,
-                "zGravityFactor": 0,
-                "bounciness": 0.0001
-            },
+            "config": { "collType": "PROJECTILE", "airFriction": 1, "zGravityFactor": 0, "bounciness": 0.0001 },
             "action": [{
                 "duration": 0,
                 "align": "CENTER",
@@ -270,19 +150,11 @@
                 "target2Align": "FACE",
                 "fixPos": false,
                 "type": "SHOW_EFFECT",
-                "effect": {
-                    "sheet": "enemies.jungle",
-                    "name": "chickenBold"
-                },
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                }
-            }, {
-                "value": 2000,
-                "type": "SET_SPEED"
-            }, {
+                "effect": { "sheet": "enemies.jungle", "name": "chickenBold" },
+                "offset": { "x": 0, "y": 0, "z": 0 }
+                }, 
+                { "value": 2000, "type": "SET_SPEED" },
+             {
                 "time": 0.4,
                 "cancelOnHit": false,
                 "collideCancel": 0.5,
@@ -290,18 +162,12 @@
                 "ignoreLastHit": false,
                 "collideSlip": false,
                 "type": "TACKLE",
-                "attack": {
-                    "type": "HEAVY",
-                    "element": "SHOCK",
-                    "reverse": false,
-                    "status": 3.5,
-                    "guardable": "",
-                    "skillBonus": "RANGED_DMG",
-                    "limiter": ""
-                }
-            }, {
+                "attack": { "type": "HEAVY", "element": "SHOCK", "reverse": false, "status": 3.5, "guardable": "", "skillBonus": "RANGED_DMG", "limiter": "" }
+            }, 
+            {
                 "type": "STOP_XY"
-            }, {
+            }, 
+            {
                 "time": 1,
                 "type": "WAIT"
             }],
@@ -313,546 +179,178 @@
             "startAnim": "",
             "label": "",
             "type": "GENERIC"
-        },
-        "DashTrail" : {
-            "size": {
-                "x": 16,
-                "y": 16,
-                "z": 32
+        }
+    },
+    "actions": {
+        "Idle": [
+            { "value": true, "type": "FACE_TO_TARGET" }, 
+            { "minTime": 0.1, "maxTime": 0.3, "type": "WAIT_RANDOM" }
+        ],
+        "BattleIdle": [
+            { "value": true, "type": "FACE_TO_TARGET" }, 
+            { "minTime": 0.1, "maxTime": 0.3, "type": "WAIT_RANDOM" },
+            {
+                "poiFilter": { "name": "clockturret", "type": "NAMED_ENTITY" },
+                "distance": 5000,
+                "type": "SET_POI_TEMP_TARGET"
             },
-            "breakType": "NEVER",
-            "config": {
-                "collType": "PROJECTILE",
-                "airFriction": 1,
-                "zGravityFactor": 0,
-                "bounciness": 0.0001
+            { "minTime": 0.1, "maxTime": 0.3, "type": "WAIT_RANDOM" },
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hasTmpTarget",
+                "thenStep": [
+                    { "value": 1, "type": "SET_RELATIVE_SPEED" },
+                    { 
+                        "type": "CIRCLE_ENTITY", 
+                        "entity": { "name": "clockturret", "global": true },
+                        "duration": 2,
+                        "ccw": false
+                    },
+                    { "value": 1.3, "type": "SET_RELATIVE_SPEED" },
+                    { 
+                        "type": "CIRCLE_ENTITY", 
+                        "entity": { "name": "clockturret", "global": true },
+                        "duration": 1,
+                        "ccw": false
+                    }
+                ]
+            }
+        ],
+        "CircleIdle": [
+            { "value": true, "type": "FACE_TO_TARGET" }, 
+            {
+                "poiFilter": { "name": "clockturret", "type": "NAMED_ENTITY" },
+                "distance": 5000,
+                "type": "SET_POI_TEMP_TARGET"
             },
-            "action": [{
+            { "minTime": 0.1, "maxTime": 0.3, "type": "WAIT_RANDOM" },
+            {
+                "withElse": true,
+                "type": "IF",
+                "condition": "entity.hasTmpTarget",
+                "thenStep": [
+                    { "value": 1, "type": "SET_RELATIVE_SPEED" },
+                    { 
+                        "type": "CIRCLE_ENTITY", 
+                        "entity": { "name": "clockturret", "global": true },
+                        "duration": 2,
+                        "ccw": false
+                    },
+                    { "value": 1.3, "type": "SET_RELATIVE_SPEED" },
+                    { 
+                        "type": "CIRCLE_ENTITY", 
+                        "entity": { "name": "clockturret", "global": true },
+                        "duration": 1,
+                        "ccw": false
+                    }
+                ],
+                "elseStep": [
+                    { "value": 0.7, "type": "SET_RELATIVE_SPEED" },
+                    {
+                        "maxTime": 1.2,
+                        "forceTime": false,
+                        "distance": 72,
+                        "throwing": true,
+                        "planOnly": false,
+                        "targetType": "ENEMY",
+                        "type": "NAVIGATE_ESCAPE_TARGET"
+                    },
+                    { "minTime": 0.1, "maxTime": 0.3, "type": "WAIT_RANDOM" },
+                    { 
+                        "type": "CIRCLE_ENTITY", 
+                        "entity": { "player": true },
+                        "duration": 2,
+                        "ccw": false
+                    }
+                  ]
+            }
+        ],
+        "MoveToSpawnPoint": [
+            { "value": 0.5, "type": "SET_RELATIVE_SPEED" }, 
+            { "maxTime": 3, "maxDistance": 16, "precise": false, "type": "NAVIGATE_TO_SPAWN_POINT" }
+        ],
+        "MoveRandom": [
+            { "value": 0.3, "type": "SET_RELATIVE_SPEED" }, 
+            { "value": false, "type": "SET_JUMPING" }, 
+            { "minTime": 0.3, "maxTime": 0.5, "dirChanges": 0, "stopBeforeEdge": true, "type": "MOVE_RANDOM" }, 
+            { "minTime": 0.5, "maxTime": 0.6, "type": "WAIT_RANDOM" }
+        ],
+        "Adjust": [
+            { "value": 0.6, "type": "SET_RELATIVE_SPEED" }, 
+            {
+                "maxTime": 1,
+                "forceTime": false,
+                "distance": 120,
+                "throwing": true,
+                "planOnly": false,
+                "targetType": "ENEMY",
+                "type": "NAVIGATE_ESCAPE_TARGET"
+            }
+        ],
+        "Circle": [
+            { "value": 1.3, "type": "SET_RELATIVE_SPEED" },
+            { "forceValue": 1, "type": "RESET_TRACKER", "tracker": "aimAttack" },
+            { "name": "allowShoot", "type": "SET_ATTRIB_BOOL", "value": true },
+            { "minTime": 0.1, "maxTime": 0.3, "type": "WAIT_RANDOM" },
+            {
+                "maxTime": 1,
+                "forceTime": false,
+                "distance": 64,
+                "planOnly": false,
+                "targetType": "ENEMY",
+                "precise": true,
+                "type": "NAVIGATE_TO_TARGET"
+            }, 
+            { 
+                "type": "CIRCLE_ENTITY", 
+                "entity": { "player": true },
                 "duration": 2,
-                "align": "CENTER",
+                "ccw": false
+            },
+            { "value": true, "type": "FACE_TO_TARGET" }
+          ],
+        "BulbShoot": [
+            { "active": "PRE_ATTACK", "type": "CHANGE_ENEMY_ANNOTATION" }, 
+            { "value": "HEAVY", "type": "SET_HIT_STABLE" }, 
+            { "type": "DISABLE_REACTION", "reaction": "ESCAPE" },
+            { "type": "DISABLE_REACTION", "reaction": "AGGRO" },
+            { "value": true, "type": "FACE_TO_TARGET" }, 
+            { "followUp": "blowUpEnd", "wait": false, "viaWalkConfig": false, "type": "SHOW_ANIMATION", "anim": "blowUp" }, 
+            { "time": 0.15, "type": "WAIT" }, 
+            {
+                "duration": 1,
+                "target": "TARGET",
+                "align": "BOTTOM",
                 "rotateFace": 0,
                 "flipLeftFace": false,
                 "wait": false,
                 "waitSkip": 0,
                 "actionDetached": false,
-                "target2": "PROXY_OWNER",
+                "target2": "SELF",
                 "target2Align": "CENTER",
                 "fixPos": false,
                 "type": "SHOW_EFFECT",
-                "effect": {
-                    "sheet": "enemies.jungle",
-                    "name": "chickenBold"
-                },
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                }
-                }],
-                "invisible": false,
-                "hp": 0,
-                "stickToSource": "NONE",
-                "stickFaceAlign": false,
-                "group": "",
-                "startAnim": "",
-                "label": "",
-                "type": "GENERIC"
-        }
-    },
-    "actions": {
-        "Idle": [{
-            "withElse": false,
-            "condition": "entity.attrib.questEscortAttackBlock",
-            "type": "IF",
-            "thenStep": [{
-                "changeType": "sub",
-                "varName": "tmp.escortAttackBlock",
-                "value": 1,
-                "type": "CHANGE_VAR_NUMBER"
-            }, {
-                "name": "questEscortAttackBlock",
-                "value": false,
-                "type": "SET_ATTRIB_BOOL"
-            }]
-        }, {
-            "value": true,
-            "type": "FACE_TO_TARGET"
-        }, {
-            "minTime": 0.1,
-            "maxTime": 0.3,
-            "type": "WAIT_RANDOM"
-        }],
-        "BattleIdle": [{
-            "withElse": false,
-            "type": "IF",
-            "condition": "entity.attrib.questEscortAttackBlock",
-            "thenStep": [{
-                "changeType": "sub",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.escortAttackBlock",
-                "value": 1
-            }, {
-                "name": "questEscortAttackBlock",
-                "type": "SET_ATTRIB_BOOL",
-                "value": false
-            }]
-        }, {
-            "value": true,
-            "type": "FACE_TO_TARGET"
-        }, {
-            "minTime": 0.2,
-            "maxTime": 0.4,
-            "type": "WAIT_RANDOM"
-        }],
-        "MoveToSpawnPoint": [{
-            "withElse": false,
-            "type": "IF",
-            "condition": "entity.attrib.questEscortAttackBlock",
-            "thenStep": [{
-                "changeType": "sub",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.escortAttackBlock",
-                "value": 1
-            }, {
-                "name": "questEscortAttackBlock",
-                "type": "SET_ATTRIB_BOOL",
-                "value": false
-            }]
-        }, {
-            "value": 0.5,
-            "type": "SET_RELATIVE_SPEED"
-        }, {
-            "maxTime": 3,
-            "maxDistance": 16,
-            "precise": false,
-            "type": "NAVIGATE_TO_SPAWN_POINT"
-        }],
-        "MoveRandom": [{
-            "withElse": false,
-            "type": "IF",
-            "condition": "entity.attrib.questEscortAttackBlock",
-            "thenStep": [{
-                "changeType": "sub",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.escortAttackBlock",
-                "value": 1
-            }, {
-                "name": "questEscortAttackBlock",
-                "type": "SET_ATTRIB_BOOL",
-                "value": false
-            }]
-        }, {
-            "value": 0.3,
-            "type": "SET_RELATIVE_SPEED"
-        }, {
-            "value": false,
-            "type": "SET_JUMPING"
-        }, {
-            "minTime": 0.3,
-            "maxTime": 0.5,
-            "dirChanges": 0,
-            "stopBeforeEdge": true,
-            "type": "MOVE_RANDOM"
-        }, {
-            "minTime": 0.5,
-            "maxTime": 0.6,
-            "type": "WAIT_RANDOM"
-        }],
-        "Adjust": [{
-            "withElse": false,
-            "type": "IF",
-            "condition": "entity.attrib.questEscortAttackBlock",
-            "thenStep": [{
-                "changeType": "sub",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.escortAttackBlock",
-                "value": 1
-            }, {
-                "name": "questEscortAttackBlock",
-                "type": "SET_ATTRIB_BOOL",
-                "value": false
-            }]
-        }, {
-            "value": 0.6,
-            "type": "SET_RELATIVE_SPEED"
-        }, {
-            "maxTime": 1,
-            "forceTime": false,
-            "distance": 120,
-            "throwing": true,
-            "planOnly": false,
-            "targetType": "ENEMY",
-            "type": "NAVIGATE_ESCAPE_TARGET"
-        }],
-        "GetClose": [{
-            "withElse": false,
-            "type": "IF",
-            "condition": "entity.attrib.questEscortAttackBlock",
-            "thenStep": [{
-                "changeType": "sub",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.escortAttackBlock",
-                "value": 1
-            }, {
-                "name": "questEscortAttackBlock",
-                "type": "SET_ATTRIB_BOOL",
-                "value": false
-            }]
-        }, {
-            "value": 0.9,
-            "type": "SET_RELATIVE_SPEED"
-        }, {
-            "value": "MEDIUM",
-            "type": "SET_HIT_STABLE"
-        }, {
-            "time": 0.4,
-            "type": "WAIT"
-        },{
-            "maxTime": 0.5,
-            "forceTime": false,
-            "distance": 0,
-            "planOnly": false,
-            "targetType": "ENEMY",
-            "precise": false,
-            "stayBehind": true,
-            "type": "NAVIGATE_TO_TARGET"
-        }],
-        "BulbShoot": [{
-            "value": 1.1,
-            "type": "SET_RELATIVE_SPEED"
-        },{
-            "active": "PRE_ATTACK",
-            "type": "CHANGE_ENEMY_ANNOTATION"
-        }, {
-            "value": "HEAVY",
-            "type": "SET_HIT_STABLE"
-        }, {
-            "maxTime": 1,
-            "forceTime": false,
-            "distance": 100,
-            "throwing": true,
-            "planOnly": false,
-            "targetType": "ENEMY",
-            "type": "NAVIGATE_ESCAPE_TARGET"
-        }, {
-            "value": true,
-            "immediately": true,
-            "type": "FACE_TO_TARGET"
-        }, {
-            "followUp": "blowUpEnd",
-            "wait": false,
-            "viaWalkConfig": false,
-            "type": "SHOW_ANIMATION",
-            "anim": "blowUp"
-        }, {
-            "time": 0.15,
-            "type": "WAIT"
-        }, {
-            "active": "ATTACK",
-            "type": "CHANGE_ENEMY_ANNOTATION"
-        }, 
-        {
-            "duration": -1,
-            "align": "CENTER",
-            "rotateFace": 0,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "fixPos": false,
-            "type": "SHOW_EFFECT",
-            "effect": {
-                "sheet": "enemies.jungle",
-                "name": "chickenAttack"
+                "effect": { "sheet": "enemies.jshock", "name": "fishAim" },
+                "offset": { "x": 0, "y": 0, "z": 0 }
             },
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
-        },
-        {
-            "duration": 1,
-            "target": "TARGET",
-            "align": "BOTTOM",
-            "rotateFace": 0,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "target2": "SELF",
-            "target2Align": "CENTER",
-            "fixPos": false,
-            "type": "SHOW_EFFECT",
-            "effect": {
-                "sheet": "enemies.jungle",
-                "name": "chickenAim"
-            },
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
-        },
-        {
-            "value": true,
-            "immediately": true,
-            "type": "FACE_TO_TARGET"
-        }, {
-            "active": "ATTACK",
-            "type": "CHANGE_ENEMY_ANNOTATION"
-        },{
-            "time": 1,
-            "type": "WAIT"
-        },{
-            "wait": false,
-            "viaWalkConfig": false,
-            "type": "SHOW_ANIMATION",
-            "anim": "scream"
-        },
-        {
-            "align": "FACE",
-            "type": "SHOOT_PROXY",
-            "proxy": "Bold",
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
-        },
-        {
-            "align": "FACE",
-            "type": "SHOOT_PROXY",
-            "proxy": "Bold",
-            "offset": {
-                "x": 0,
-                "y": 10,
-                "z": 0
-            }
-        },
-        {
-            "align": "FACE",
-            "type": "SHOOT_PROXY",
-            "proxy": "Bold",
-            "offset": {
-                "x": 10,
-                "y": 0,
-                "z": 0
-            }
-        },{
-            "followUp": "idle",
-            "wait": false,
-            "viaWalkConfig": false,
-            "type": "SHOW_ANIMATION",
-            "anim": "postScream"
-        }, {
-            "active": "POST_ATTACK",
-            "passive": "VULNERABLE",
-            "weapon": "ANY",
-            "type": "CHANGE_ENEMY_ANNOTATION"
-        }, 
-        {
-            "time": 2,
-            "type": "WAIT"
-        }],
-        "AggroScream": [{
-            "active": "PRE_ATTACK",
-            "type": "CHANGE_ENEMY_ANNOTATION"
-        }, {
-            "type": "DISABLE_REACTION",
-            "reaction": "ESCAPE"
-        }, {
-            "type": "DISABLE_REACTION",
-            "reaction": "AGGRO"
-        }, {
-            "duration": -1,
-            "align": "BOTTOM",
-            "rotateFace": 0,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "fixPos": false,
-            "type": "SHOW_EFFECT",
-            "effect": {
-                "sheet": "enemy",
-                "name": "angry1"
-            },
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
-        }, {
-            "value": 2,
-            "type": "SET_RELATIVE_SPEED"
-        }, {
-            "value": "HEAVY",
-            "type": "SET_HIT_STABLE"
-        }, {
-            "maxTime": 1,
-            "forceTime": false,
-            "distance": 12,
-            "planOnly": false,
-            "targetType": "ENEMY",
-            "precise": true,
-            "type": "NAVIGATE_TO_TARGET"
-        }, {
-            "followUp": "blowUpEnd",
-            "wait": false,
-            "viaWalkConfig": false,
-            "type": "SHOW_ANIMATION",
-            "anim": "blowUp"
-        }, {
-            "value": true,
-            "type": "FACE_TO_TARGET"
-        }, {
-            "value": 0.75,
-            "type": "FACE_TO_TARGET_SPEED"
-        }, {
-            "duration": -1,
-            "align": "CENTER",
-            "rotateFace": 0,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "fixPos": false,
-            "type": "SHOW_EFFECT",
-            "effect": {
-                "sheet": "enemies.jungle",
-                "name": "chickenAttack"
-            },
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
-        },{
-            "time": 0.75,
-            "type": "WAIT"
-        }, {
-            "time": 0.1,
-            "stopBeforeEdge": false,
-            "type": "MOVE_FORWARD"
-        }, {
-            "wait": false,
-            "viaWalkConfig": false,
-            "type": "SHOW_ANIMATION",
-            "anim": "scream"
-        },  {
-            "duration": -1,
-            "align": "BOTTOM",
-            "rotateFace": 4,
-            "flipLeftFace": false,
-            "wait": true,
-			"clockwise": true,
-            "waitSkip": 1,
-            "actionDetached": false,
-            "fixPos": false,
-            "type": "SHOW_EFFECT",
-            "effect": {
-                "sheet": "enemies.jungle",
-                "name": "slothHit"
-            },
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
-        }, {
-            "value": true,
-            "type": "FACE_TO_TARGET"
-        }, {
-            "value": 1.2,
-            "type": "SET_DAMAGE_FACTOR"
-        }, {
-            "type": "ENABLE_REACTION",
-            "reaction": "AGGRO_WEAK"
-        }, {
-            "active": "ATTACK",
-            "type": "CHANGE_ENEMY_ANNOTATION"
-        }, {
-            "align": "BOTTOM",
-            "radius": 80,
-            "yScale": 0,
-            "zHeight": 40,
-            "centralAngle": 0.25,
-            "duration": 0.25,
-            "expandRadius": 0,
-            "alwaysFull": true,
-            "clockwise": true,
-            "flipLeftFace": 0,
-            "rectangular": false,
-            "repeat": true,
-            "uniformHitDir": false,
-            "fixPos": false,
-            "checkCollision": false,
-            "type": "CIRCLE_ATTACK",
-            "attack": {
-                "type": "MEDIUM",
-                "element": "SHOCK",
-                "damageFactor": 0.5,
-                "reverse": false,
-                "status": 7,
-                "guardable": "",
-                "skillBonus": "",
-                "limiter": ""
-            },
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
-        }, {
-            "time": 0.6,
-            "type": "WAIT"
-        }, {
-            "type": "CLEAR_EFFECTS"
-        }, {
-            "type": "STOP_REPEATING_FORCE"
-        }, {
-            "duration": -1,
-            "align": "BOTTOM",
-            "rotateFace": 0,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "fixPos": false,
-            "type": "SHOW_EFFECT",
-            "effect": {
-                "sheet": "charge",
-                "name": "light"
-            },
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
-        }, {
-            "followUp": "idle",
-            "wait": false,
-            "viaWalkConfig": false,
-            "type": "SHOW_ANIMATION",
-            "anim": "postScream"
-        }, {
-            "active": "POST_ATTACK",
-            "passive": "VULNERABLE",
-            "weapon": "ANY",
-            "type": "CHANGE_ENEMY_ANNOTATION"
-        }, {
-            "time": 3,
-            "type": "WAIT"
-        }],
-        "Escape": [{
-            "time": 0.2,
-            "type": "WAIT"
-        },{
-            "withElse": false,
-            "type": "IF",
-            "condition": "",
-            "thenStep": [{
+            { "value": true, "immediately": true, "type": "FACE_TO_TARGET" }, 
+            { "active": "ATTACK", "type": "CHANGE_ENEMY_ANNOTATION" },
+            { "time": 1, "type": "WAIT" },
+            { "wait": false, "viaWalkConfig": false, "type": "SHOW_ANIMATION", "anim": "scream" },
+            { "align": "FACE", "type": "SHOOT_PROXY", "proxy": "Spark", "offset": { "x": 0, "y": 0, "z": 0 } },
+            { "align": "FACE", "type": "SHOOT_PROXY", "proxy": "Spark", "offset": { "x": 0, "y": 10, "z": 0 } },
+            { "followUp": "idle", "wait": false, "viaWalkConfig": false, "type": "SHOW_ANIMATION", "anim": "postScream" }, 
+            { "type": "ENABLE_REACTION", "reaction": "AGGRO" },
+            { "active": "POST_ATTACK", "passive": "VULNERABLE", "weapon": "ANY", "type": "CHANGE_ENEMY_ANNOTATION" }, 
+            { "name": "allowShoot", "type": "SET_ATTRIB_BOOL", "value": false },
+            { "time": 2, "type": "WAIT" }
+        ],
+        "AggroScream": [
+            { "active": "PRE_ATTACK", "type": "CHANGE_ENEMY_ANNOTATION" }, 
+            { "type": "DISABLE_REACTION", "reaction": "ESCAPE" }, 
+            { "type": "DISABLE_REACTION", "reaction": "AGGRO" }, 
+            {
                 "duration": -1,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -862,23 +360,58 @@
                 "actionDetached": false,
                 "fixPos": false,
                 "type": "SHOW_EFFECT",
-                "effect": {
-                    "sheet": "enemies.jungle",
-                    "name": "slothHit"
-                },
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                }
-            },  {
-                "name": "questEscortAttackBlock",
-                "type": "SET_ATTRIB_BOOL",
-                "value": false
-            }, {
-                "active": "ATTACK",
-                "type": "CHANGE_ENEMY_ANNOTATION"
-            }, {
+                "effect": { "sheet": "enemy", "name": "angry1" },
+                "offset": { "x": 0, "y": 0, "z": 0 }
+            }, 
+            { "value": 2, "type": "SET_RELATIVE_SPEED" }, 
+            { "value": "HEAVY", "type": "SET_HIT_STABLE" }, 
+            {
+                "maxTime": 1,
+                "forceTime": false,
+                "distance": 12,
+                "planOnly": false,
+                "targetType": "ENEMY",
+                "precise": true,
+                "type": "NAVIGATE_TO_TARGET"
+            }, 
+            { "followUp": "blowUpEnd", "wait": false, "viaWalkConfig": false, "type": "SHOW_ANIMATION", "anim": "blowUp" }, 
+            { "value": true, "type": "FACE_TO_TARGET" }, 
+            { "value": 0.5, "type": "FACE_TO_TARGET_SPEED" },
+            { "time": 0.75, "type": "WAIT" },
+            { "time": 0.1, "stopBeforeEdge": false, "type": "MOVE_FORWARD" },
+            {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": { "sheet": "enemies.jungle", "name": "chickenAttack" },
+                "offset": { "x": 0, "y": 0, "z": 0 }
+            }, 
+            { "wait": false, "viaWalkConfig": false, "type": "SHOW_ANIMATION", "anim": "scream" },  
+            { "value": true, "type": "FACE_TO_TARGET" }, 
+            { "value": 1.2, "type": "SET_DAMAGE_FACTOR" }, 
+            { "type": "ENABLE_REACTION", "reaction": "AGGRO_WEAK" }, 
+            { "active": "ATTACK", "type": "CHANGE_ENEMY_ANNOTATION" }, 
+            {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 4,
+                "flipLeftFace": false,
+                "wait": true,
+                "clockwise": true,
+                "waitSkip": 1,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": { "sheet": "enemies.jungle", "name": "slothHit" },
+                "offset": { "x": 0, "y": 0, "z": 0 }
+            }, 
+            {
                 "align": "BOTTOM",
                 "radius": 80,
                 "yScale": 0,
@@ -887,7 +420,7 @@
                 "duration": 0.25,
                 "expandRadius": 0,
                 "alwaysFull": true,
-                "clockwise": true,  
+                "clockwise": true,
                 "flipLeftFace": 0,
                 "rectangular": false,
                 "repeat": true,
@@ -895,225 +428,74 @@
                 "fixPos": false,
                 "checkCollision": false,
                 "type": "CIRCLE_ATTACK",
-                "attack": {
-                    "type": "MEDIUM",
-                    "element": "SHOCK",
-                    "damageFactor": 0.5,
-                    "reverse": false,
-                    "status": 7,
-                    "guardable": "",
-                    "skillBonus": "",
-                    "limiter": ""
-                },
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                }
-            }]
-        }, {
-            "passive": "IMMUNE",
-            "type": "CHANGE_ENEMY_ANNOTATION"
-        }, {
-            "value": "HEAVY",
-            "type": "SET_HIT_STABLE"
-        }, {
-            "value": 1,
-            "type": "SET_RELATIVE_SPEED"
-        }, {
-            "value": 0.2,
-            "type": "SET_INVINCIBLE"
-        },  {
-            "maxTime": 1,
-            "forceTime": false,
-            "distance": 160,
-            "throwing": true,
-            "planOnly": false,
-            "targetType": "ENEMY",
-            "type": "NAVIGATE_ESCAPE_TARGET"
-        }],
-        "QuestEscort-TargetEscortee": [{
-            "withElse": false,
-            "type": "IF",
-            "condition": "entity.attrib.questEscortAttackBlock",
-            "thenStep": [{
-                "changeType": "sub",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.escortAttackBlock",
-                "value": 1
-            }, {
-                "name": "questEscortAttackBlock",
-                "type": "SET_ATTRIB_BOOL",
-                "value": false
-            }]
-        }, {
-            "value": "LIGHT",
-            "type": "SET_HIT_STABLE"
-        }, {
-            "kind": "NAMED_ENTITY",
-            "key": "quest-escortee",
-            "type": "SET_TEMP_TARGET"
-        }, {
-            "attrib": "escortTarget",
-            "type": "SET_ATTRIB_TARGET_ENTITY"
-        }, {
-            "type": "DISABLE_REACTION",
-            "reaction": "ESCAPE"
-        }, {
-            "value": true,
-            "type": "FACE_TO_TARGET"
-        }, {
-            "active": "PRE_ATTACK",
-            "passive": "VULNERABLE",
-            "type": "CHANGE_ENEMY_ANNOTATION"
-        }, {
-            "name": "questEscortAttackBlock",
-            "type": "SET_ATTRIB_BOOL",
-            "value": true
-        }, {
-            "changeType": "add",
-            "type": "CHANGE_VAR_NUMBER",
-            "varName": "tmp.escortAttackBlock",
-            "value": 1
-        }, {
-            "maxTime": 1,
-            "forceTime": false,
-            "distance": 200,
-            "planOnly": false,
-            "targetType": "ENEMY",
-            "precise": false,
-            "stayBehind": false,
-            "type": "NAVIGATE_TO_TARGET"
-        }, {
-            "maxTime": 1,
-            "forceTime": false,
-            "distance": 120,
-            "throwing": false,
-            "planOnly": false,
-            "targetType": "ENEMY",
-            "type": "NAVIGATE_ESCAPE_TARGET"
-        }, {
-            "duration": -1,
-            "align": "BOTTOM",
-            "rotateFace": 0,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "group": "angry",
-            "fixPos": false,
-            "effect": {
-                "sheet": "enemy",
-                "name": "angry2"
-            },
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            },
-            "type": "SHOW_EFFECT"
-        }, {
-            "text": {
-                "en_US": "!!!",
-                "de_DE": "!!!<<C<<Gepr\u00fcft: Minsu",
-                "zh_CN": "!!!<<A<<[CHANGED 2018\/05\/01]",
-                "zh_TW": "!!!<<A<<[CHANGED 2018\/05\/01]",
-                "ja_JP": "\uff01\uff01\uff01<<A<<[CHANGED 2018\/05\/01]",
-                "ko_KR": "!!!<<A<<[CHANGED 2018\/05\/01]",
-                "langUid": 27
-            },
-            "mode": "LINE_EMPTY",
-            "color": "RED",
-            "actionDetached": false,
-            "hideOutsideOfScreen": false,
-            "time": {
-                "varName": "tmp.targetEscortTime"
-            },
-            "type": "SHOW_AR_MSG"
-        }, {
-            "type": "WAIT",
-            "time": {
-                "varName": "tmp.targetEscortTime"
+                "attack": { "type": "MEDIUM", "element": "SHOCK", "damageFactor": 0.5, "reverse": false, "status": 7, "guardable": "", "skillBonus": "", "limiter": "" },
+                "offset": { "x": 0, "y": 0, "z": 0 }
+            }, 
+            { "time": 0.6, "type": "WAIT" }, 
+            { "type": "CLEAR_EFFECTS" }, 
+            { "type": "STOP_REPEATING_FORCE" }, 
+            {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": { "sheet": "charge", "name": "light" },
+                "offset": { "x": 0, "y": 0, "z": 0 }
+            }, 
+            { "followUp": "idle", "wait": false, "viaWalkConfig": false, "type": "SHOW_ANIMATION", "anim": "postScream" }, 
+            { "active": "POST_ATTACK", "passive": "VULNERABLE", "weapon": "ANY", "type": "CHANGE_ENEMY_ANNOTATION" }, 
+            { "time": 3, "type": "WAIT" }
+        ],
+        "Escape": [ 
+            { "passive": "IMMUNE", "type": "CHANGE_ENEMY_ANNOTATION" },
+            { "value": "HEAVY", "type": "SET_HIT_STABLE" },
+            { "value": 1, "type": "SET_RELATIVE_SPEED" },
+            { "value": 0.2, "type": "SET_INVINCIBLE" },
+            { "value": 48, "type": "SET_FLY_HEIGHT" },
+            {
+                "maxTime": 1,
+                "forceTime": false,
+                "distance": 160,
+                "throwing": true,
+                "planOnly": false,
+                "targetType": "ENEMY",
+                "type": "NAVIGATE_ESCAPE_TARGET"
             }
-        }, {
-            "group": "angry",
-            "type": "CLEAR_EFFECTS"
-        }, {
-            "name": "questAttackEscortee",
-            "type": "SET_ATTRIB_BOOL",
-            "value": true
-        }, {
-            "noStateReset": false,
-            "type": "DO_ENEMY_ACTION",
-            "actionName": "BulbShoot"
-        }],
-        "QuestEscort-Init": [{
-            "kind": "NAMED_ENTITY",
-            "key": "quest-escortee",
-            "type": "SET_TEMP_TARGET"
-        }, {
-            "attrib": "escortTarget",
-            "type": "SET_ATTRIB_TARGET_ENTITY"
-        }, {
-            "forceValue": 0.5,
-            "type": "RESET_TRACKER",
-            "tracker": "escortAttack"
-        }, {
-            "changeType": "add",
-            "type": "CHANGE_VAR_NUMBER",
-            "varName": "tmp.escortEnemiesSpawned",
-            "value": 1
-        }, {
-            "type": "SET_ATTRIB_BOOL",
-            "name": "init",
-            "value": true
-        }],
-        "QuestEscort-Dead": [{
-            "withElse": false,
-            "type": "IF",
-            "condition": "entity.attrib.questEscortAttackBlock",
-            "thenStep": [{
-                "changeType": "sub",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.escortAttackBlock",
-                "value": 1
-            }, {
-                "name": "questEscortAttackBlock",
-                "type": "SET_ATTRIB_BOOL",
-                "value": false
-            }]
-        }]
+        ]
     },
     "reactions": {
         "ESCAPE": {
-            "minDistance": 64,
-            "maxDistance": 128,
+            "minDistance": 0,
+            "maxDistance": 48,
             "preciseFace": false,
             "checkCollision": false,
-            "action": "BulbShoot",
+            "action": "Escape",
             "conditions": [],
-            "ignoreParty": true,
+            "ignoreParty": false,
             "ignoreReplaceTargets": false,
             "type": "TARGET_DISTANCE"
-        },
-        "AGGRO": {
+          },
+          "AGGRO": {
             "hitType": "REGULAR",
             "action": "AggroScream",
             "blockFurtherHits": false,
             "attackType": "LIGHT",
             "flyLevel": "LIGHT",
             "stunChange": "FORCE_STABLE",
-            "alignFace": true,
+            "alignFace": false,
             "dramaticEffect": "BREAK",
-            "conditions": [{
-                "negated": false,
-                "type": "TRACKER_READY",
-                "name": "aggroHits"
-            }],
+            "conditions": [
+              { "negated": false, "type": "TRACKER_READY", "name": "aggroHits" }
+            ],
             "ignoreFailed": false,
             "type": "HIT_REACTION"
-        },
-        "AGGRO_WEAK": {
+          },
+          "AGGRO_WEAK": {
             "hitType": "REGULAR",
             "preSwitchState": "WEAK",
             "blockFurtherHits": false,
@@ -1122,31 +504,12 @@
             "stunChange": "FORCE_STUN",
             "alignFace": false,
             "dramaticEffect": "BREAK",
-            "conditions": [{
-                "type": "!BALL_SMALL"
-            }],
+            "conditions": [{ "type": "!BALL_SMALL" }],
             "ignoreFailed": false,
             "minDistance": 0,
             "maxDistance": 0,
             "type": "HIT_REACTION"
-        },
-        "ESCORT_DEAD": {
-            "hitType": "KILL_HIT",
-            "preAction": "QuestEscort-Dead",
-            "blockFurtherHits": false,
-            "attackType": "",
-            "flyLevel": "",
-            "stunChange": "FORCE_STUN",
-            "alignFace": false,
-            "dramaticEffect": "",
-            "conditions": [{
-                "negated": false,
-                "type": "VAR_CONDITION",
-                "condition": "tmp.questEscort-started"
-            }],
-            "ignoreFailed": false,
-            "type": "HIT_REACTION"
-        }
+          }
     },
     "meta": {
         "species": {
@@ -1161,12 +524,12 @@
         "category": "ANIMALS",
         "descriptions": [{
             "text": {
-                "en_US": "Coming right at you from the deep, this angler fish found its way into the jungle and lives primarily in the rainy part of it. It mostly stays passive unless provoked in which case it will try to stay away and shoot wave projectiles at you. Shoot at it until it becomes mad and charges at you to release a large scream. Dodge it and melee attack it to break its guard.",
-                "de_DE": "Dieser Angler-Fisch kommt aus der Tiefe direkt auf dich zu! Er fand seinen Weg in den Dschungel und lebt haupts\u00e4chlich in den verregneten Gebieten. Meist bleibt er passiv, au\u00dfer man bedroht ihn. In dem Fall bleibt er auf Distanz und bombardiert dich mit Welleprojektilen. Wirf so lange B\u00e4lle auf ihn, bis er w\u00fctend wird und heranst\u00fcrmt, um dich mit einem lauten Schrei zu attackieren. Weiche diesem aus und greife ihn im Nahkampf an, um seine Verteidigung zu brechen.<<C<<Gepr\u00fcft: Minsu",
-                "zh_CN": "\u8fd9\u79cd\u7435\u7436\u9c7c\u4e3b\u8981\u5c45\u4e8e\u591a\u96e8\u7684\u68ee\u6797\u3002\u5e73\u65f6\u4fdd\u6301\u4e2d\u7acb\uff0c\u53d7\u5230\u653b\u51fb\u540e\u4f1a\u4e0e\u654c\u4eba\u4fdd\u6301\u8ddd\u79bb\u5e76\u55b7\u5410\u6ce2\u653b\u51fb\u3002\u5bf9\u5176\u8fdb\u884c\u8fdc\u7a0b\u5c04\u51fb\u4f1a\u8ba9\u5b83\u7a9c\u51fa\u6c34\u9762\u5411\u4f60\u53d1\u52a8\u51b2\u51fb\uff0c\u95ea\u907f\u5e76\u8fd1\u6218\u653b\u51fb\u6765\u5bf9\u5176\u8fdb\u884c\u7834\u9632\u3002<<A<<[CHANGED 2018\/09\/19]",
-                "zh_TW": "\u9019\u7a2e\u7435\u7436\u9b5a\u4e3b\u8981\u5c45\u65bc\u591a\u96e8\u7684\u68ee\u6797\u3002\u5e73\u6642\u4fdd\u6301\u4e2d\u7acb\uff0c\u53d7\u5230\u653b\u64ca\u5f8c\u6703\u8207\u6575\u4eba\u4fdd\u6301\u8ddd\u96e2\u4e26\u5674\u5410\u6ce2\u653b\u64ca\u3002\u5c0d\u5176\u9032\u884c\u9060\u7a0b\u5c04\u64ca\u6703\u8b93\u5b83\u7ac4\u51fa\u6c34\u9762\u5411\u4f60\u767c\u52d5\u885d\u64ca\uff0c\u9583\u907f\u4e26\u8fd1\u6230\u653b\u64ca\u4f86\u5c0d\u5176\u9032\u884c\u7834\u9632\u3002<<A<<[CHANGED 2018\/09\/19]",
-                "ja_JP": "\u6df1\u307f\u304b\u3089\u73fe\u308c\u3001\u30b8\u30e3\u30f3\u30b0\u30eb\u306b\u4f4f\u307f\u7740\u3044\u305f\u30a2\u30f3\u30b3\u30a6\u578b\u30e2\u30f3\u30b9\u30bf\u30fc\u3002\u4e3b\u306b\u3001\u96e8\u304c\u591a\u304f\u964d\u308b\u5730\u57df\u3092\u751f\u606f\u5730\u3068\u3057\u3066\u3044\u308b\u3053\u3068\u304c\u77e5\u3089\u308c\u3066\u3044\u308b\u3002\u5371\u5bb3\u3092\u4e0e\u3048\u306a\u3044\u9650\u308a\u8972\u3063\u3066\u304f\u308b\u3053\u3068\u306f\u306a\u3044\u304c\u3001\u6226\u95d8\u6642\u306b\u306f\u8ddd\u96e2\u3092\u958b\u3051\u3001\u6ce2\u52d5\u5c5e\u6027\u306e\u9060\u8ddd\u96e2\u653b\u6483\u3092\u5c04\u3061\u51fa\u3057\u3066\u304f\u308b\u3002\u4e00\u5b9a\u91cf\u30c0\u30e1\u30fc\u30b8\u3092\u4e0e\u3048\u308b\u3068\u4e00\u6c17\u306b\u8ddd\u96e2\u3092\u8a70\u3081\u3066\u304d\u3066\u3001\u53eb\u3073\u58f0\u306b\u3088\u308b\u653b\u6483\u3092\u4ed5\u639b\u3051\u3066\u304f\u308b\u3002\u53eb\u3073\u58f0\u3092\u56de\u907f\u3057\u3066\u3001\u8fd1\u63a5\u653b\u6483\u3092\u53e9\u304d\u8fbc\u3080\u3053\u3068\u3067\u30ac\u30fc\u30c9\u3092\u5d29\u3059\u3053\u3068\u304c\u3067\u304d\u308b\u305e\u3002<<A<<[CHANGED 2018\/09\/19]",
-                "ko_KR": "\uae4a\uc740 \uacf3\uc5d0\uc11c\ubd80\ud130 \ub2f9\uc2e0\uc5d0\uac8c \ub3cc\uc9c4\ud558\ub294 \uc774 \uc544\uadc0\ub294 \uc815\uae00\ub85c \uc790\uc2e0\uc758 \uae38\uc744 \ucc3e\uc544\uac00 \uc8fc\ub85c \ube44 \uc624\ub294 \uc9c0\uc5ed\uc5d0 \uc11c\uc2dd\ud569\ub2c8\ub2e4. \ub3c4\ubc1c\ud558\uc9c0 \uc54a\ub294 \uc774\uc0c1 \uc218\ub3d9\uc801\uc778 \uc0c1\ud0dc\ub85c \uc9c0\ub0b4\uba70, \uac74\ub4dc\ub9ac\uba74 \uba40\ub9ac \ub5a8\uc5b4\uc838 \ud30c\ub3d9 \ubc1c\uc0ac\uccb4\ub97c \uc3e0 \uac83\uc785\ub2c8\ub2e4. \ud654\uac00 \ub098 \ub2f9\uc2e0\uc5d0\uac8c \ub2e4\uac00\uac00 \uace0\ud568\uc744 \uce60 \ub54c\uae4c\uc9c0 \uc3d8\uc138\uc694. \uace0\ud568\uc744 \ud53c\ud55c \ub4a4, \uadfc\uc811 \uacf5\uaca9\uc73c\ub85c \ub140\uc11d\uc758 \uac00\ub4dc\ub97c \ubd80\uc218\uc138\uc694.<<A<<[CHANGED 2018\/09\/19]",
+                "en_US": "Shocking, isnt it",
+                "de_DE": "Shocking, isnt it",
+                "zh_CN": "Shocking, isnt it",
+                "zh_TW": "Shocking, isnt it",
+                "ja_JP": "Shocking, isnt it",
+                "ko_KR": "Shocking, isnt it",
                 "langUid": 29
             },
             "condition": ""

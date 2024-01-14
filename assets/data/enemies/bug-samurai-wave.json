@@ -133,208 +133,44 @@
         "IDLE": {
             "shadow": 32,
             "choices": [
-                {
-                    "req": [
-                        {
-                            "negated": false,
-                            "type": "ENTERED_STATE"
-                        }
-                    ],
-                    "action": "SpecialEnd"
-                },
-                {
-                    "req": [
-                        {
-                            "negated": false,
-                            "type": "HAS_TARGET"
-                        }
-                    ],
-                    "action": "SamuraiStart",
-                    "postSwitchState": "DEFAULT",
-                    "ignoreStun": true
-                },
-                {
-                    "req": [
-                        {
-                            "min": 0,
-                            "max": 64,
-                            "type": "!SPAWN_POINT_DISTANCE"
-                        }
-                    ],
-                    "action": "MoveToSpawnPoint"
-                },
-                {
-                    "req": [
-                        {
-                            "type": "RANDOM",
-                            "max": 0.3
-                        }
-                    ],
-                    "action": "MoveRandom"
-                },
-                {
-                    "action": "Idle"
-                }
+                { "req": [ { "negated": false, "type": "ENTERED_STATE" } ], "action": "SpecialEnd" },
+                { "req": [ { "negated": false, "type": "HAS_TARGET" } ], "action": "SamuraiStart", "postSwitchState": "DEFAULT", "ignoreStun": true },
+                { "req": [ { "min": 0, "max": 64, "type": "!SPAWN_POINT_DISTANCE" } ], "action": "MoveToSpawnPoint" },
+                { "req": [ { "type": "RANDOM", "max": 0.3 } ], "action": "MoveRandom" },
+                { "action": "Idle" }
             ]
         },
         "DEFAULT": {
             "walkAnims": "normal",
             "choices": [
-                {
-                    "req": [
-                        {
-                            "type": "!HAS_TARGET"
-                        }
-                    ],
-                    "postSwitchState": "IDLE"
-                },
-                {
-                    "req": [
-                        {
-                            "min": 1.5,
-                            "negated": false,
-                            "type": "COMBO_TIME"
-                        }
-                    ],
-                    "action": "EscapeJump",
-                    "ignoreStun": true
-                },
-                {
-                    "req": [
-                        {
-                            "distance": 200,
-                            "throwing": false,
-                            "type": "!TARGET_REACHABLE"
-                        }
-                    ],
-                    "action": "AdjustFast"
-                },
-                {
-                    "req": [
-                        {
-                            "count": 3,
-                            "sameType": false,
-                            "negated": false,
-                            "type": "ENEMY_COUNT"
-                        }
-                    ],
-                    "action": "SpecialStart",
-                    "frequency": "RARE",
-                    "postSwitchState": "SPECIAL"
-                },
-                {
-                    "req": [
-                        {
-                            "count": 3,
-                            "sameType": false,
-                            "type": "!ENEMY_COUNT"
-                        }
-                    ],
-                    "action": "SpecialStart",
-                    "frequency": "SOMETIMES",
-                    "postSwitchState": "SPECIAL"
-                },
-                {
-                    "action": "Attack",
-                    "frequency": "NORMAL"
-                },
-                {
-                    "req": [
-                        {
-                            "type": "!TARGET_REACHABLE",
-                            "distance": 120
-                        }
-                    ],
-                    "action": "Adjust"
-                },
-                {
-                    "action": "BattleIdle"
-                }
+                { "req": [ { "type": "!HAS_TARGET" } ], "postSwitchState": "IDLE" },
+                { "req": [ { "min": 1.5, "negated": false, "type": "COMBO_TIME" } ], "action": "EscapeJump", "ignoreStun": true },
+                { "req": [ { "distance": 200, "throwing": false, "type": "!TARGET_REACHABLE" } ], "action": "AdjustFast" },
+                { "req": [ { "count": 3, "sameType": false, "negated": false, "type": "ENEMY_COUNT" } ], "action": "SpecialStart", "frequency": "RARE", "postSwitchState": "SPECIAL" },
+                { "req": [ { "count": 3, "sameType": false, "type": "!ENEMY_COUNT" } ], "action": "SpecialStart", "frequency": "SOMETIMES", "postSwitchState": "SPECIAL" },
+                { "action": "Attack", "frequency": "NORMAL" },
+                { "req": [ { "type": "!TARGET_REACHABLE", "distance": 120 } ], "action": "Adjust" },
+                { "action": "BattleIdle" }
             ]
         },
         "SPECIAL": {
             "walkAnims": "normal",
-            "enabledReactions": [
-                "DODGE"
-            ],
+            "enabledReactions": [ "DODGE" ],
             "choices": [
-                {
-                    "req": [
-                        {
-                            "type": "!HAS_TARGET"
-                        }
-                    ],
-                    "postSwitchState": "IDLE"
-                },
-                {
-                    "req": [
-                        {
-                            "min": 0.5,
-                            "negated": false,
-                            "type": "COMBO_TIME"
-                        }
-                    ],
-                    "action": "EscapeJump",
-                    "ignoreStun": true
-                },
-                {
-                    "req": [
-                        {
-                            "distance": 200,
-                            "throwing": false,
-                            "type": "!TARGET_REACHABLE"
-                        }
-                    ],
-                    "action": "AdjustFast"
-                },
-                {
-                    "req": [
-                        {
-                            "negated": false,
-                            "type": "TRACKER_READY",
-                            "name": "modeDuration"
-                        }
-                    ],
-                    "action": "FirstCut",
-                    "frequency": "NORMAL",
-                    "preSwitchState": "DEFAULT"
-                },
-                {
-                    "action": "Attack",
-                    "frequency": "NORMAL"
-                },
-                {
-                    "req": [
-                        {
-                            "type": "!TARGET_REACHABLE",
-                            "distance": 120
-                        }
-                    ],
-                    "action": "Adjust"
-                },
-                {
-                    "action": "BattleIdle"
-                }
+                { "req": [ { "type": "!HAS_TARGET" } ], "postSwitchState": "IDLE" },
+                { "req": [ { "min": 0.5, "negated": false, "type": "COMBO_TIME" } ], "action": "EscapeJump", "ignoreStun": true },
+                { "req": [ { "distance": 200, "throwing": false, "type": "!TARGET_REACHABLE" } ], "action": "AdjustFast" },
+                { "req": [ { "negated": false, "type": "TRACKER_READY", "name": "modeDuration" } ], "action": "FirstCut", "frequency": "NORMAL", "preSwitchState": "DEFAULT" },
+                { "action": "Attack", "frequency": "NORMAL" },
+                { "req": [ { "type": "!TARGET_REACHABLE", "distance": 120 } ], "action": "Adjust" },
+                { "action": "BattleIdle" }
             ]
         },
         "WEAK": {
             "walkAnims": "weak",
             "choices": [
-                {
-                    "req": [
-                        {
-                            "negated": false,
-                            "type": "TRACKER_READY",
-                            "name": "weakRegen"
-                        }
-                    ],
-                    "action": "WeakEnd",
-                    "preSwitchState": "DEFAULT",
-                    "ignoreStun": true
-                },
-                {
-                    "action": "WeakIdle"
-                }
+                { "req": [ { "negated": false, "type": "TRACKER_READY", "name": "weakRegen" } ], "action": "WeakEnd", "preSwitchState": "DEFAULT", "ignoreStun": true },
+                { "action": "WeakIdle" }
             ]
         },
         "PASSIVE_INVIS": {

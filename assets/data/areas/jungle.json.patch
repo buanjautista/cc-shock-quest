@@ -23,6 +23,7 @@
                             "zh_CN": "细雨丛林",
                             "ko_KR": "이슬비 내리는 숲",
                             "ja_JP": "霧雨の森",
+                            "langUid": 1001,
                             "zh_TW": "細雨叢林"
                         }
                     },
@@ -34,6 +35,7 @@
                             "zh_CN": "未命名",
                             "ja_JP": "無題",
                             "ko_KR": "미정",
+                            "langUid": 1002,
                             "zh_TW": "未命名"
                         }
                     },
@@ -45,6 +47,7 @@
                             "zh_CN": "未命名",
                             "ja_JP": "無題",
                             "ko_KR": "미정",
+                            "langUid": 1003,
                             "zh_TW": "未命名"
                         }
                     },
@@ -55,6 +58,7 @@
                             "de_DE": "unbetitelt",
                             "zh_CN": "未命名",
                             "ja_JP": "無題",
+                            "langUid": 1004,
                             "ko_KR": "미정",
                             "zh_TW": "未命名"
                         }
@@ -67,6 +71,19 @@
                             "zh_CN": "未命名",
                             "ja_JP": "無題",
                             "ko_KR": "미정",
+                            "langUid": 1005,
+                            "zh_TW": "未命名"
+                        }
+                    },
+                    {
+                        "path": "jungle.left.outside-path05",
+                        "name": {
+                            "en_US": "Round and Round",
+                            "de_DE": "unbetitelt",
+                            "zh_CN": "未命名",
+                            "ja_JP": "無題",
+                            "ko_KR": "미정",
+                            "languid": 1000,
                             "zh_TW": "未命名"
                         }
                     }
@@ -106,7 +123,15 @@
                 }
                 ],
                 "icons": [],
-                "landmarks": []
+                "landmarks": [
+                    {
+                        "id": "clockpond",
+                        "x": 200,
+                        "y": 481,
+                        "map": 2,
+                        "option": "DEFAULT"
+                    }
+                ]
             }
     },
     {
