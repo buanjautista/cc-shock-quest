@@ -86,7 +86,7 @@
                 { "req": [{ "type": "!HAS_TARGET" }], "postSwitchState": "IDLE" },
                 { "req": [{ "min": 0, "max": 48, "negated": false, "type": "TARGET_DISTANCE" }], "action": "Escape", "ignoreStun": true }, 
                 { "req": [{ "distance": 220, "throwing": true, "type": "!TARGET_REACHABLE" }], "action": "Adjust" }, 
-                { "req": [{ "distance": 180, "throwing": true, "type": "!TARGET_REACHABLE" }],"action": "BulbShoot", "frequency": "NORMAL" },
+                { "req": [{ "distance": 140, "throwing": true, "type": "!TARGET_REACHABLE" }],"action": "BulbShoot", "frequency": "NORMAL" },
                 {
                     "req": [ { "negated": false, "type": "TRACKER_READY", "name": "Circle" } ],
                     "action": "Circle",
@@ -257,11 +257,10 @@
                         "type": "NAVIGATE_ESCAPE_TARGET"
                     },
                     { "minTime": 0.1, "maxTime": 0.3, "type": "WAIT_RANDOM" },
-                    { 
-                        "type": "CIRCLE_ENTITY", 
-                        "entity": { "player": true },
-                        "duration": 2,
-                        "ccw": false
+                    {
+                        "withElse": true, "type": "IF", "condition": "!map.disallowFishMove", "thenStep": [
+                        { "type": "CIRCLE_ENTITY", "entity": { "player": true }, "duration": 2, "ccw": false }
+                        ]
                     }
                   ]
             }
@@ -294,22 +293,27 @@
             { "name": "allowShoot", "type": "SET_ATTRIB_BOOL", "value": true },
             { "minTime": 0.1, "maxTime": 0.3, "type": "WAIT_RANDOM" },
             {
-                "maxTime": 1,
-                "forceTime": false,
-                "distance": 64,
-                "planOnly": false,
-                "targetType": "ENEMY",
-                "precise": true,
-                "type": "NAVIGATE_TO_TARGET"
-            }, 
-            { 
-                "type": "CIRCLE_ENTITY", 
-                "entity": { "player": true },
-                "duration": 2,
-                "ccw": false
-            },
-            { "value": true, "type": "FACE_TO_TARGET" }
-          ],
+                "withElse": true,
+                "type": "IF",
+                "condition": "!map.disallowFishMove",
+                "thenStep": [
+                    {
+                        "maxTime": 1,
+                        "forceTime": false,
+                        "distance": 64,
+                        "planOnly": false,
+                        "targetType": "ENEMY",
+                        "precise": true,
+                        "type": "NAVIGATE_TO_TARGET"
+                    }, 
+                    { 
+                        "type": "CIRCLE_ENTITY", 
+                        "entity": { "player": true },
+                        "duration": 2,
+                        "ccw": false
+                    }
+                ]
+            }],
         "BulbShoot": [
             { "active": "PRE_ATTACK", "type": "CHANGE_ENEMY_ANNOTATION" }, 
             { "value": "HEAVY", "type": "SET_HIT_STABLE" }, 
@@ -319,7 +323,7 @@
             { "followUp": "blowUpEnd", "wait": false, "viaWalkConfig": false, "type": "SHOW_ANIMATION", "anim": "blowUp" }, 
             { "time": 0.15, "type": "WAIT" }, 
             {
-                "duration": 1,
+                "duration": 1.25,
                 "target": "TARGET",
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -336,7 +340,7 @@
             },
             { "value": true, "immediately": true, "type": "FACE_TO_TARGET" }, 
             { "active": "ATTACK", "type": "CHANGE_ENEMY_ANNOTATION" },
-            { "time": 1, "type": "WAIT" },
+            { "time": 1.25, "type": "WAIT" },
             { "wait": false, "viaWalkConfig": false, "type": "SHOW_ANIMATION", "anim": "scream" },
             { "align": "FACE", "type": "SHOOT_PROXY", "proxy": "Spark", "offset": { "x": 0, "y": 0, "z": 0 } },
             { "align": "FACE", "type": "SHOOT_PROXY", "proxy": "Spark", "offset": { "x": 0, "y": 10, "z": 0 } },

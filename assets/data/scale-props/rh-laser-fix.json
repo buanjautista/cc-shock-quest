@@ -1,0 +1,19 @@
+{
+  "DOCTYPE": "SCALABLE_PROP_SHEET",
+  "entries": {
+    "laserRailingsH": {
+      "baseSize": { "x": 16, "y": 8, "z": 24 },
+      "renderHeight": 16,
+      "renderMode": "lighter",
+      "wallY": 0,
+      "scalableX": true,
+      "scalableY": false,
+      "scalableStep": 16,
+      "collType": "BLOCK",
+      "gfx": "media/map/rookie-harbor.png",
+      "gfxBaseX": 0,
+      "gfxBaseY": 248,
+      "patterns": { "x": 0, "y": 0, "w": 16, "h": 24, "xCount": 1, "yCount": 1 }
+    }
+  }
+}
