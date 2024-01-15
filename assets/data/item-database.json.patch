@@ -13,7 +13,7 @@
                 "langUid": 0
             },
             "description": {
-                "en_US": "Boosts your \\c[3]sight\\c[0].",
+                "en_US": "Boosts your \\c[3]sight\\c[0] and \\c[3]concentration\\c[0], at the cost of patience.",
                 "langUid": 1
             },
             "type": "EQUIP",
@@ -42,7 +42,7 @@
                 "AIM_SPEED": 2.5,
                 "CRITICAL_DMG": 1.75,
                 "RANGED_DMG": 1.4,
-                "AIMING_MOVEMENT": 0.5
+                "AIMING_MOVEMENT": 0.6
             }
         }
     },
@@ -95,11 +95,11 @@
             "order": 1669,
             "customItem": "equip-flasher",
             "name": {
-                "en_US": "Light Emitting Diode",
+                "en_US": "LED Slippers",
                 "langUid": 0
             },
             "description": {
-                "en_US": "Not useful to replace a lighter",
+                "en_US": "Light-weight and flashy enough shoes that increase the style and evasion of its wearer. Not useful to replace a lighter though.",
                 "langUid": 1
             },
             "type": "EQUIP",
@@ -183,7 +183,7 @@
                 "langUid": 2138
             },
             "description": {
-                "en_US": "",
+                "en_US": "A gear piece of a clock machine. Seems to be unfunctional",
                 "langUid": 2139
             },
             "type": "TRADE",
