@@ -1,5 +1,6 @@
 {
-	"name": "Clock Tower",
+	"id": "clock-tower",
+	"title": "Clock Tower",
 	"description": "A custom dungeon located in Gaia's Garden",
 	"version": "0.0.3",
 	"prestart": "mod.js",
