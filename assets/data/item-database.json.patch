@@ -7,7 +7,7 @@
         "type": "ADD_ARRAY_ELEMENT",
         "content": {
             "order": 1667,
-            "customItem": "equip-sniper-lens",
+            "customItem": "ct-equip-sniper-lens",
             "name": {
                 "en_US": "Sniper's Lens",
                 "langUid": 0
@@ -27,12 +27,7 @@
                 "name": "circle"
             },
             "params": {
-                "elemFactor": [
-                    1,
-                    1,
-                    1,
-                    1
-                ],
+                "elemFactor": [ 1, 1, 1, 1 ],
                 "hp": 95,
                 "attack": 196,
                 "defense": 30,
@@ -50,7 +45,7 @@
         "type": "ADD_ARRAY_ELEMENT",
         "content": {
             "order": 1668,
-            "customItem": "equip-slapper",
+            "customItem": "ct-equip-slapper",
             "name": {
                 "en_US": "Ol' Slapper",
                 "langUid": 0
@@ -70,12 +65,7 @@
                 "name": "circle"
             },
             "params": {
-                "elemFactor": [
-                    1,
-                    1,
-                    1,
-                    1
-                ],
+                "elemFactor": [ 1, 1, 1, 1 ],
                 "hp": 105,
                 "attack": 176,
                 "defense": 80,
@@ -93,13 +83,13 @@
         "type": "ADD_ARRAY_ELEMENT",
         "content": {
             "order": 1669,
-            "customItem": "equip-flasher",
+            "customItem": "ct-equip-flasher",
             "name": {
                 "en_US": "LED Slippers",
                 "langUid": 0
             },
             "description": {
-                "en_US": "Light-weight and flashy enough shoes that increase the style and evasion of its wearer. Not useful to replace a lighter though.",
+                "en_US": "Flashy light-weight shoes that increase style and evasion of its wearer. Not useful to replace a lighter though.",
                 "langUid": 1
             },
             "type": "EQUIP",
@@ -113,12 +103,7 @@
                 "name": "circle"
             },
             "params": {
-                "elemFactor": [
-                    1,
-                    1,
-                    1.5,
-                    1
-                ],
+                "elemFactor": [ 1, 1, 1.5, 1 ],
                 "hp": 375,
                 "attack": 64,
                 "defense": 25,
@@ -137,7 +122,7 @@
         "type": "ADD_ARRAY_ELEMENT",
         "content": {
             "order": 1670,
-            "customItem": "equip-wide-umbrella",
+            "customItem": "ct-equip-wide-umbrella",
             "name": {
                 "en_US": "Wide Umbrella",
                 "langUid": 0
@@ -157,12 +142,7 @@
                 "name": "circle"
             },
             "params": {
-                "elemFactor": [
-                    1.1,
-                    1.1,
-                    1,
-                    1
-                ],
+                "elemFactor": [ 1.5, 1.5, 1, 1 ],
                 "attack": 20,
                 "defense": 25,
                 "focus": 178
@@ -176,8 +156,98 @@
     {
         "type": "ADD_ARRAY_ELEMENT",
         "content": {
+            "order": 1671,
+            "customItem": "ct-equip-rightsword",
+            "name": {
+                "en_US": "Right Edge",
+                "langUid": 0
+            },
+            "description": {
+                "en_US": "A weapon that synergizes well with its pair.",
+                "langUid": 1
+            },
+            "type": "EQUIP",
+            "rarity": 4,
+            "cost": 0,
+            "level": 70,
+            "icon": "item-sword",
+            "equipType": "ARM",
+            "effect": {
+                "sheet": "drops",
+                "name": "circle"
+            },
+            "params": {
+                "elemFactor": [ 1, 1, 1, 1 ],
+                "hp": 105,
+                "attack": 176,
+                "defense": 80,
+                "focus": 90
+            },
+            "properties": {
+                "ASSAULT": 1.75,
+                "GUARD_STRENGTH": 0.75,
+                "KNOCKBACK": 3,
+                "AIM_STABILITY": 0.85
+            },
+            "combo": "ct-equip-leftsword",
+            "comboProperties": {
+                "ASSAULT": 1.75,
+                "GUARD_STRENGTH": 0.75,
+                "KNOCKBACK": 3,
+                "AIM_STABILITY": 0.85
+            }
+        }
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 1672,
+            "customItem": "ct-equip-leftsword",
+            "name": {
+                "en_US": "Left Edge",
+                "langUid": 0
+            },
+            "description": {
+                "en_US": "A weapon that synergizes well with its pair.",
+                "langUid": 1
+            },
+            "type": "EQUIP",
+            "rarity": 4,
+            "cost": 0,
+            "level": 70,
+            "icon": "item-sword",
+            "equipType": "ARM",
+            "effect": {
+                "sheet": "drops",
+                "name": "circle"
+            },
+            "params": {
+                "elemFactor": [ 1, 1, 1, 1 ],
+                "hp": 105,
+                "attack": 176,
+                "defense": 80,
+                "focus": 90
+            },
+            "properties": {
+                "ASSAULT": 1.75,
+                "GUARD_STRENGTH": 0.75,
+                "KNOCKBACK": 3,
+                "AIM_STABILITY": 0.85
+            },
+            "combo": "ct-equip-rightsword",
+            "comboProperties": {
+                "ASSAULT": 1.75,
+                "GUARD_STRENGTH": 0.75,
+                "KNOCKBACK": 3,
+                "AIM_STABILITY": 0.85
+            }
+        }
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
             "order": 1700,
-            "customItem": "trade-clock-gear",
+            "customItem": "ct-trade-clock-gear",
             "name": {
                 "en_US": "Clock Gear",
                 "langUid": 2138
@@ -215,7 +285,7 @@
         "type": "ADD_ARRAY_ELEMENT",
         "content": {
             "order": 1701,
-            "customItem": "key-clock-regular",
+            "customItem": "ct-key-clock-regular",
             "name": {
                 "en_US": "Clock Tower Key",
                 "de_DE": "Clock Tower Key",
@@ -251,7 +321,7 @@
         "type": "ADD_ARRAY_ELEMENT",
         "content": {
             "order": 1702,
-            "customItem": "key-clock-master",
+            "customItem": "ct-key-clock-master",
             "name": {
                 "en_US": "Clock Master Key",
                 "de_DE": "Clock Master Key",

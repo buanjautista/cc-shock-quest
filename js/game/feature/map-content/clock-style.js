@@ -90,7 +90,7 @@ ig.module("game.feature.puzzle.entities.clock-rotate-blocker")
     "game.feature.interact.map-interact"
 )
 .defines(function () {
-        // Add an exception to vanilla Rotate Blocker to allow 4 rotations without flipping
+        // Add a modded rotate blocker to show the custom graphics
         sc.ROTATE_BLOCKER_DIR = { NE: 0, SE: 1, SW: 2, NW: 3 };
         var b = [
             { angle: 0, collShape: ig.COLLSHAPE.SLOPE_NE, anim: "ne" },
@@ -311,7 +311,6 @@ ig.module("game.feature.puzzle.entities.clock-rotate-blocker")
                 this.currentDir = a;
                 this.currentAngle = this.destAngle % 1;
                 a = b[this.currentDir];
-                console.log(this.currentAngle, this.currentDir, a)
                 this.destAngle = a.angle || 1;
                 this.coll.shape = a.collShape;
                 this.setCurrentAnim("turn");
@@ -349,7 +348,7 @@ ig.module("game.feature.puzzle.entities.clock-rotate-blocker")
                 var a = this.condition.evaluate();
                 a != this.active && this.setActive(a);
                 var b = this.moveCondition.evaluate();
-                if (b) { 
+                if (b && this.moveCondition.vars.length > 0) { 
                     this.turn((this.currentDir + 1) % 4);
                 };
             },

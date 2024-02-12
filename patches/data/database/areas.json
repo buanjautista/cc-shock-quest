@@ -17,6 +17,7 @@
             "langUid": 3
         },
         "areaType": "DUNGEON",
+        "boosterItem": "452",
         "order": 1120,
         "track": true,
         "position": {

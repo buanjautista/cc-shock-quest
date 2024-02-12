@@ -1,4 +1,4 @@
-sc.CombatParams.inject({
+/* sc.CombatParams.inject({
     getDamage(e, g, h, i, j) {
         var l = e.noHack || false;
         let critFactor = e.critFactor;
@@ -10,3 +10,4 @@ sc.CombatParams.inject({
         let parentVal = this.parent(e, g, h, i, j);
     }
   });
+   */
