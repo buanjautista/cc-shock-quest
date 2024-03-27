@@ -21,8 +21,8 @@
         "order": 1120,
         "track": true,
         "position": {
-            "x": 215,
-            "y": 95
+            "x": 235,
+            "y": 105
         }
     },
     "seekers-path": {
@@ -45,6 +45,31 @@
         "areaType": "DUNGEON",
         "order": 1121,
         "track": true,
+        "position": {
+            "x": 230,
+            "y": 125
+        }
+    },
+    "jungle-dummy": {
+        "name": {
+            "en_US": "Path to Clock Tower",
+            "de_DE": "Path to Clock Tower",
+            "ja_JP": "Path to Clock Tower",
+            "ko_KR": "Path to Clock Tower",
+            "zh_CN": "Path to Clock Tower",
+            "langUid": 1
+        },
+        "description": {
+            "en_US": "",
+            "de_DE": "",
+            "ja_JP": "",
+            "ko_KR": "",
+            "zh_CN": "",
+            "langUid": 3
+        },
+        "areaType": "PATH",
+        "order": 1121,
+        "track": false,
         "position": {
             "x": 215,
             "y": 95

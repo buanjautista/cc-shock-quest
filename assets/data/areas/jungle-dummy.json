@@ -1,0 +1,27 @@
+{
+    "width": 15,
+    "height": 15,
+    "floors": [
+        {
+            "level": 0,
+            "tiles": [],
+            "maps": [
+                {
+                    "path": "jungle.left.outside-path-01",
+                    "name": {
+                        "en_US": "River's End",
+                        "de_DE": "unbetitelt",
+                        "zh_CN": "未命名",
+                        "ja_JP": "無題",
+                        "ko_KR": "미정",
+                        "langUid": 1000,
+                        "zh_TW": "未命名"
+                    }
+                }
+            ],
+            "connections": [],
+            "icons": [],
+            "landmarks": []
+        }
+    ]
+}
