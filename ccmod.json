@@ -1,13 +1,12 @@
 {
 	"id": "clock-tower",
-	"version": "0.0.3",
 	"title": "Clock Tower",
 	"description": "A custom dungeon located in Gaia's Garden",
-	"repository": "https://github.com/buanjautista/cc-shock-quest",
-	"tags": ["maps", "puzzle"],
-	"authors": "buanjautista",
+	"version": "0.0.3",
+	"prestart": "mod.js",
+	"module": true,
+	
 	"dependencies": {
-		"item-api": "^0.4.0"
-	},
-	"prestart": "mod.js"
+        "item-api": "^0.4.0"
+    }
 }

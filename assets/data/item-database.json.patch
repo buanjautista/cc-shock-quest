@@ -72,7 +72,7 @@
                 "focus": 90
             },
             "properties": {
-                "ASSAULT": 1.75,
+                "ASSAULT": 1.5,
                 "GUARD_STRENGTH": 0.75,
                 "KNOCKBACK": 3,
                 "AIM_STABILITY": 0.85
@@ -184,17 +184,13 @@
                 "focus": 90
             },
             "properties": {
-                "ASSAULT": 1.75,
-                "GUARD_STRENGTH": 0.75,
-                "KNOCKBACK": 3,
-                "AIM_STABILITY": 0.85
+                "ASSAULT": 1.25,
+                "GUARD_STRENGTH": 0.75
             },
             "combo": "ct-equip-leftsword",
             "comboProperties": {
-                "ASSAULT": 1.75,
-                "GUARD_STRENGTH": 0.75,
-                "KNOCKBACK": 3,
-                "AIM_STABILITY": 0.85
+                "ASSAULT": 1.5,
+                "GUARD_STRENGTH": 1.5
             }
         }
     },
@@ -229,17 +225,8 @@
                 "focus": 90
             },
             "properties": {
-                "ASSAULT": 1.75,
-                "GUARD_STRENGTH": 0.75,
-                "KNOCKBACK": 3,
-                "AIM_STABILITY": 0.85
-            },
-            "combo": "ct-equip-rightsword",
-            "comboProperties": {
-                "ASSAULT": 1.75,
-                "GUARD_STRENGTH": 0.75,
-                "KNOCKBACK": 3,
-                "AIM_STABILITY": 0.85
+                "ASSAULT": 1.25,
+                "GUARD_STRENGTH": 0.75
             }
         }
     },
