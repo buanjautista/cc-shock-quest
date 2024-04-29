@@ -6,10 +6,7 @@
   {
     "type": "ENTER",
     "_comment": "Icon for area connection",
-    "index": [
-      3,
-      "icons"
-    ]
+    "index": [ 3, "icons" ]
   },
   {
     "type": "ADD_ARRAY_ELEMENT",
@@ -20,7 +17,7 @@
       "y": 508,
       "map": 3,
       "data": {
-        "area": "jungle-dummy",
+        "area": "jungle-clock-dummy",
         "map": "jungle.left.outside-path01"
       }
     }
@@ -90,7 +87,7 @@
         {
           "path": "jungle.left.outside-path05",
           "name": {
-            "en_US": "Round and Round",
+            "en_US": "Round and Round HQ",
             "de_DE": "unbetitelt",
             "zh_CN": "未命名",
             "ja_JP": "無題",

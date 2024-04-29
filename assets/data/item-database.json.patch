@@ -83,7 +83,7 @@
         "type": "ADD_ARRAY_ELEMENT",
         "content": {
             "order": 1669,
-            "customItem": "ct-equip-flasher",
+            "customItem": "ct-equip-slippers",
             "name": {
                 "en_US": "LED Slippers",
                 "langUid": 0
@@ -159,11 +159,11 @@
             "order": 1671,
             "customItem": "ct-equip-rightsword",
             "name": {
-                "en_US": "Right Edge",
+                "en_US": "Shooter's Twin Edge",
                 "langUid": 0
             },
             "description": {
-                "en_US": "A weapon that synergizes well with its pair.",
+                "en_US": "A ranged weapon that synergizes well with its pair.",
                 "langUid": 1
             },
             "type": "EQUIP",
@@ -179,18 +179,22 @@
             "params": {
                 "elemFactor": [ 1, 1, 1, 1 ],
                 "hp": 105,
-                "attack": 176,
+                "attack": 102,
                 "defense": 80,
-                "focus": 90
+                "focus": 142
             },
             "properties": {
-                "ASSAULT": 1.25,
-                "GUARD_STRENGTH": 0.75
+                "RANGED_DMG": 1.5,
+                "AIM_STABILITY": 1.25,
+                "DASH_INVINC": 0.85,
+                "OVERHEAT_REDUCTION": 0.85
             },
             "combo": "ct-equip-leftsword",
             "comboProperties": {
-                "ASSAULT": 1.5,
-                "GUARD_STRENGTH": 1.5
+                "ASSAULT": 1.75,
+                "OVERHEAT_REDUCTION": 1.3,
+                "DASH_INVINC": 1.3,
+                "GUARD_STRENGTH": 1.3
             }
         }
     },
@@ -200,11 +204,11 @@
             "order": 1672,
             "customItem": "ct-equip-leftsword",
             "name": {
-                "en_US": "Left Edge",
+                "en_US": "Slasher's Twin Edge",
                 "langUid": 0
             },
             "description": {
-                "en_US": "A weapon that synergizes well with its pair.",
+                "en_US": "A brawler weapon that synergizes well with its pair.",
                 "langUid": 1
             },
             "type": "EQUIP",
@@ -219,14 +223,16 @@
             },
             "params": {
                 "elemFactor": [ 1, 1, 1, 1 ],
-                "hp": 105,
-                "attack": 176,
-                "defense": 80,
-                "focus": 90
+                "hp": 72,
+                "attack": 152,
+                "defense": 24,
+                "focus": 62
             },
             "properties": {
-                "ASSAULT": 1.25,
-                "GUARD_STRENGTH": 0.75
+                "MELEE_DMG": 1.5,
+                "OVERHEAT_REDUCTION": 0.85,
+                "GUARD_STRENGTH": 0.85,
+                "CRITICAL_DMG": 1.25
             }
         }
     },

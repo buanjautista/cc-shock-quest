@@ -67,7 +67,7 @@
             "scale": 200000
         }, {
             "get": [{
-                "id": "ct-equip-flasher",
+                "id": "ct-equip-slippers",
                 "amount": 1
             }],
             "require": [{
@@ -84,6 +84,31 @@
                 "amount": 4
             }],
             "scale": 200000
+        }],
+        "area": "jungle"
+    },
+    "pondTraderEtc": {
+        "name": {
+            "en_US": "",
+            "langUid": 1
+        },
+        "order": 1001,
+        "options": [{
+            "get": [{
+                "id": "ct-trade-clock-gear",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "163",
+                "amount": 4
+            },{
+                "id": "192",
+                "amount": 2
+            }, {
+                "id": "81",
+                "amount": 4
+            }],
+            "scale": 15000
         }],
         "area": "jungle"
     }
