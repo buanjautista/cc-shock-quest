@@ -14,6 +14,10 @@ Any version around 2.21-22+ is known to be compatible with this mod.
 Item-API is another mod, required for some custom items implementations. You can download it here: https://github.com/CCDirectLink/item-api/releases
 Drop the mod source code folder into the /assets/mods/ folder
 
+## [cc-combo-weapons](https://github.com/buanjautista/cc-combo-weapons/releases/):
+A small library mod that adds combo equipments.
+
 # Installation:
 
 Assuming you already installed CCLoader, download the latest release from https://github.com/buanjautista/cc-shock-quest/releases, and drop the .ccmod file into the /assets/mods/ folder inside the CrossCode directory.
+If you have CCModManager, you can instead download Clock Tower from inside the manager in game, which should install all its dependencies.
